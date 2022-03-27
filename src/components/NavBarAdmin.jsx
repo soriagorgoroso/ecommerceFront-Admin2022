@@ -4,8 +4,8 @@ function NavBarAdmin() {
   return (
     <>
       <nav className="navbar navbar-expand-custom navbar-mainbg">
-        <a className="navbar-brand navbar-logo" href="#">
-          Navbar
+        <a className="navbar-brand navbar-logo" href="/">
+          Hack Beer
         </a>
         <button
           className="navbar-toggler"
@@ -23,28 +23,28 @@ function NavBarAdmin() {
               <div className="right"></div>
             </div>
             <li className="nav-item">
-              <a className="nav-link">
-                <i className=""></i>Dashboard
+              <a className="nav-link" href="/usuarios">
+                <i className=""></i>Usuarios
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/articulos">
+                <i className="far fa-clone"></i>Articulos
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/categorias">
+                <i className="far fa-calendar-alt"></i>Categorias
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link">
-                <i className="far fa-clone"></i>Components
+                <i className="far fa-chart-bar"></i>???
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link">
-                <i className="far fa-calendar-alt"></i>Calendar
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">
-                <i className="far fa-chart-bar"></i>Charts
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">
-                <i className="far fa-copy"></i>Documents
+                <i className="far fa-copy"></i>???
               </a>
             </li>
           </ul>
