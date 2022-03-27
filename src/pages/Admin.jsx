@@ -5,6 +5,8 @@ function Admin() {
   return (
     <>
       <NavBarAdmin />
+      <h1>Pagina del administrador</h1>
+      <p>Bienvenido a la pagina del administrador de Hack Beer</p>
     </>
   );
 }
