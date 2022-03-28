@@ -8,7 +8,7 @@ import ArticleCRUD from "./pages/ArticleCRUD";
 import UserCRUD from "./pages/UserCRUD";
 import CategoryCRUD from "./pages/CategoryCRUD";
 import OrderCRUD from "./pages/OrderCRUD";
-import EditProduct from "./pages/EditProduct";
+import EditArticle from "./pages/EditArticle";
 
 function App() {
   //const loggedUser = useSelector((state) => state.users[0]);
@@ -24,7 +24,7 @@ function App() {
         <Route path="/categorias" element={<CategoryCRUD />} />
         <Route path="/pedidos" element={<OrderCRUD />} />
         //edit pages
-        <Route path="/articulos/:id" element={<EditProduct />} />
+        <Route path="/articulos/:id" element={<EditArticle />} />
       </Routes>
       <ToastContainer />
     </div>

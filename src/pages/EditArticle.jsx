@@ -1,6 +1,6 @@
 import React from "react";
 
-function EditProduct() {
+function EditArticle() {
   return (
     <>
       <h1>Editar Articulo</h1>
@@ -8,4 +8,4 @@ function EditProduct() {
   );
 }
 
-export default EditProduct;
+export default EditArticle;
