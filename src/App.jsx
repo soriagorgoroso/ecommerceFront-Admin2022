@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import ArticleCRUD from "./pages/ArticleCRUD";
 import UserCRUD from "./pages/UserCRUD";
 import CategoryCRUD from "./pages/CategoryCRUD";
+import OrderCRUD from "./pages/OrderCRUD";
 
 function App() {
   //const loggedUser = useSelector((state) => state.users[0]);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/articulos" element={<ArticleCRUD />} />
         <Route path="/usuarios" element={<UserCRUD />} />
         <Route path="/categorias" element={<CategoryCRUD />} />
+        <Route path="/pedidos" element={<OrderCRUD />} />
       </Routes>
       <ToastContainer />
     </div>
