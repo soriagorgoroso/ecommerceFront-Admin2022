@@ -42,12 +42,16 @@ function ArticleCRUD() {
                   <td>{article.sizecc}</td>
                   <td>{article.stock}</td>
                   <td>
-                    <a className="btn btn-success" rel="stylesheet" href="">
+                    <a
+                      className="btn btn-success"
+                      rel="stylesheet"
+                      href={`/articulos/${article.id}`}
+                    >
                       Editar
                     </a>
                   </td>
                   <td>
-                    <a className="btn btn-danger" rel="stylesheet" href="">
+                    <a className="btn btn-danger" rel="stylesheet" href="/">
                       Eliminar
                     </a>
                   </td>
