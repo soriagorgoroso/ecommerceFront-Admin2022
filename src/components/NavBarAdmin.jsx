@@ -43,8 +43,8 @@ function NavBarAdmin() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link">
-                <i className="far fa-copy"></i>???
+              <a className="nav-link" href="/estadisticas">
+                <i className="far fa-copy"></i>Estadisticas
               </a>
             </li>
           </ul>

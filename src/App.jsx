@@ -9,6 +9,7 @@ import UserCRUD from "./pages/UserCRUD";
 import CategoryCRUD from "./pages/CategoryCRUD";
 import OrderCRUD from "./pages/OrderCRUD";
 import EditArticle from "./pages/EditArticle";
+import Statistics from "./pages/Statistics";
 
 function App() {
   //const loggedUser = useSelector((state) => state.users[0]);
@@ -23,6 +24,7 @@ function App() {
         <Route path="/usuarios" element={<UserCRUD />} />
         <Route path="/categorias" element={<CategoryCRUD />} />
         <Route path="/pedidos" element={<OrderCRUD />} />
+        <Route path="/estadisticas" element={<Statistics />} />
         //edit pages
         <Route path="/articulos/:id" element={<EditArticle />} />
       </Routes>
