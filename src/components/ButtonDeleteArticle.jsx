@@ -1,7 +1,7 @@
 import React from "react";
 
-function ButtonDeleteProduct() {
+function ButtonDeleteArticle() {
   return <div>ButtonDeletProduct</div>;
 }
 
-export default ButtonDeleteProduct;
+export default ButtonDeleteArticle;

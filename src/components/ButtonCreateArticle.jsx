@@ -1,7 +1,7 @@
 import React from "react";
 
-function ButtonCreateProduct() {
+function ButtonCreateArticle() {
   return <div>ButtonCreatProduct</div>;
 }
 
-export default ButtonCreateProduct;
+export default ButtonCreateArticle;

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 import { useParams } from "react-router-dom";
+import ButtonEditArticle from "../components/ButtonEditArticle";
 
 function EditArticle() {
   const params = useParams();
@@ -16,7 +17,7 @@ function EditArticle() {
       setArticle(response.data);
     };
     getArticle();
-  }, []);
+  }, [params.id]);
 
   return (
     article && (
@@ -107,11 +108,9 @@ function EditArticle() {
               type="text"
             />
           </form>
-          <button className="btn btn-danger" type="submit">
-            Guardar cambios
-          </button>
+          <ButtonEditArticle />
           <br />
-          <a className="my-3 btn btn-success" href="/articulos">
+          <a className="my-3 btn btn-danger" href="/articulos">
             Ir atrás
           </a>
         </Container>
