@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 function UserCRUD() {
   const [users, setUsers] = React.useState(null);
   const user = useSelector((state) => state.user);
-  console.log(user);
+  //console.log(user);
 
   React.useEffect(() => {
     const getUsers = async () => {
