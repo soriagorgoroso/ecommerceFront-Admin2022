@@ -1,6 +1,33 @@
-import React from "react";
 import "./Login.css";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import actions from "../redux/userActions";
+import { useNavigate } from "react-router-dom";
+
 function Login() {
+  const [password, setPassword] = useState("");
+  const [data, setData] = useState("");
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8000/tokens", {
+        email: data,
+        password: password,
+      });
+      dispatch(actions.login(response.data));
+      navigate("/admin");
+    } catch (error) {
+      setErrorMessage("Error!");
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className="containerLogin">
@@ -10,35 +37,41 @@ function Login() {
           type="text/css"
         />
 
-        <form method="post" action="index.html">
+        <form method="post" action="index.html" onSubmit={handleSubmit}>
           <div className="box">
             <h1 className="title">Dashboard</h1>
 
             <input
               type="email"
               name="email"
-              defaultValue={"email"}
               // onFocus="field_focus(this, 'email');"
               // onBlur="field_blur(this, 'email');"
+              autoComplete="username"
               className="email"
+              placeholder="email"
+              value={data}
+              onChange={(e) => setData(e.target.value)}
             />
 
             <input
               type="password"
-              name="email"
-              defaultValue={"email"}
-              // onFocus="field_focus(this, 'email');"
-              // onBlur="field_blur(this, 'email');"
+              name="password"
+              // onFocus="field_focus(this, 'password');"
+              // onBlur="field_blur(this, 'password');"
+              autoComplete="current-password"
               className="email"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
-            <span href="#">
-              <div className="btn">Sign In</div>
-            </span>
+            <button type="submit" className="btn">
+              Sign In
+            </button>
 
-            <span href="#">
-              <div id="btn2">Sign Up</div>
-            </span>
+            <button type="submit" className="btn">
+              Sign Up
+            </button>
           </div>
         </form>
 
