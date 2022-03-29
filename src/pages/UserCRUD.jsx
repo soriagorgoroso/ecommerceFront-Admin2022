@@ -13,7 +13,7 @@ function UserCRUD() {
     const getUsers = async () => {
       const response = await axios.get("http://localhost:8000/users", {
         headers: {
-          Bearer: user.token,
+          Authorization: "Bearer " + user.token,
         },
       });
       setUsers(response.data);
