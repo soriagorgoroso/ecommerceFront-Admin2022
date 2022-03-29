@@ -2,13 +2,20 @@ import React from "react";
 import NavBarAdmin from "../components/NavBarAdmin";
 import axios from "axios";
 import { Table, Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 function UserCRUD() {
   const [users, setUsers] = React.useState(null);
+  const user = useSelector((state) => state.user);
+  console.log(user);
 
   React.useEffect(() => {
     const getUsers = async () => {
-      const response = await axios.get("http://localhost:8000/users");
+      const response = await axios.get("http://localhost:8000/users", {
+        headers: {
+          Bearer: user.token,
+        },
+      });
       setUsers(response.data);
     };
     getUsers();
