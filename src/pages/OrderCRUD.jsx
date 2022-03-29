@@ -2,13 +2,19 @@ import React from "react";
 import NavBarAdmin from "../components/NavBarAdmin";
 import axios from "axios";
 import { Table, Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 function OrderCRUD() {
   const [orders, setOrders] = React.useState(null);
+  const user = useSelector((state) => state.user);
 
   React.useEffect(() => {
     const getOrders = async () => {
-      const response = await axios.get("http://localhost:8000/orders");
+      const response = await axios.get("http://localhost:8000/orders", {
+        headers: {
+          Authorization: "Bearer " + user.token,
+        },
+      });
       setOrders(response.data);
     };
     getOrders();
