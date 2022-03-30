@@ -4,7 +4,7 @@ function NavBarAdmin() {
   return (
     <>
       <nav className="navbar navbar-expand-custom navbar-mainbg">
-        <a className="navbar-brand navbar-logo" href="/">
+        <a className="navbar-brand navbar-logo" href="/admin">
           Hack Beer
         </a>
         <button
