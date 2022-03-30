@@ -39,7 +39,11 @@ function CategoryCRUD() {
                   <td>{category.name}</td>
 
                   <td>
-                    <a className="btn btn-success" rel="stylesheet" href="">
+                    <a
+                      className="btn btn-success"
+                      rel="stylesheet"
+                      href={`/categorias/${category.name}`}
+                    >
                       Editar
                     </a>
                   </td>
