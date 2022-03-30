@@ -28,7 +28,7 @@ function OrderCRUD() {
       <>
         <NavBarAdmin />
         <Container>
-          <h1>Pedidos</h1>
+          <h1>Ordenes</h1>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
