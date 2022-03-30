@@ -1,7 +1,11 @@
 import React from "react";
 
 function ButtonCreateArticle() {
-  return <div>ButtonCreatProduct</div>;
+  return (
+    <button className="btn btn-success" type="submit">
+      Guardar cambios
+    </button>
+  );
 }
 
 export default ButtonCreateArticle;

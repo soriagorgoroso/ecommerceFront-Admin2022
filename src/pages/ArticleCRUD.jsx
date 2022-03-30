@@ -23,7 +23,9 @@ function ArticleCRUD() {
         <Container>
           <div className="d-flex align-items-center justify-content-between">
             <h1>Articulos</h1>
-            <button className="btn btn-primary">Agregar articulo</button>
+            <a href="articulos/nuevo" className="btn btn-primary">
+              Agregar articulo
+            </a>
           </div>
           <Table striped bordered hover size="sm">
             <thead>

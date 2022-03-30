@@ -1,7 +1,11 @@
 import React from "react";
 
 function ButtonDeleteArticle() {
-  return <div>ButtonDeletProduct</div>;
+  return (
+    <button className="btn btn-success" type="submit">
+      Guardar cambios
+    </button>
+  );
 }
 
 export default ButtonDeleteArticle;
