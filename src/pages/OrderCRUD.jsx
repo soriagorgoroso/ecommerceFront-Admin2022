@@ -43,7 +43,11 @@ function OrderCRUD() {
                   <td>{order.createdAt}</td>
 
                   <td>
-                    <a className="btn btn-success" rel="stylesheet" href="">
+                    <a
+                      className="btn btn-success"
+                      rel="stylesheet"
+                      href={`/ordenes/${order.id}`}
+                    >
                       Editar
                     </a>
                   </td>
