@@ -17,10 +17,13 @@ function Login() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/tokens", {
-        email: data,
-        password: password,
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/tokens`,
+        {
+          email: data,
+          password: password,
+        }
+      );
       dispatch(actions.login(response.data));
       navigate("/admin");
     } catch (error) {
