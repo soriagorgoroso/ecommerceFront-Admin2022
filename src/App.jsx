@@ -9,6 +9,8 @@ import UserCRUD from "./pages/UserCRUD";
 import CategoryCRUD from "./pages/CategoryCRUD";
 import OrderCRUD from "./pages/OrderCRUD";
 import EditArticle from "./pages/EditArticle";
+import EditUser from "./pages/EditUser";
+import EditCategory from "./pages/EditCategory";
 import Statistics from "./pages/Statistics";
 
 function App() {
@@ -20,14 +22,17 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
-          //pages
+          {/* pages */}
           <Route path="/articulos" element={<ArticleCRUD />} />
           <Route path="/usuarios" element={<UserCRUD />} />
           <Route path="/categorias" element={<CategoryCRUD />} />
           <Route path="/pedidos" element={<OrderCRUD />} />
           <Route path="/estadisticas" element={<Statistics />} />
-          //edit pages
+          {/* edit pages */}
           <Route path="/articulos/:id" element={<EditArticle />} />
+          <Route path="/usuarios/:username" element={<EditUser />} />
+          <Route path="/categorias/:id" element={<EditCategory />} />
+          {/* login */}
           <Route path="/" element={<Login />} />
         </Routes>
       ) : (
