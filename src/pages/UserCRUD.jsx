@@ -11,11 +11,14 @@ function UserCRUD() {
 
   React.useEffect(() => {
     const getUsers = async () => {
-      const response = await axios.get("http://localhost:8000/users", {
-        headers: {
-          Authorization: "Bearer " + user.token,
-        },
-      });
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/users`,
+        {
+          headers: {
+            Authorization: "Bearer " + user.token,
+          },
+        }
+      );
       setUsers(response.data);
     };
     getUsers();
@@ -49,7 +52,11 @@ function UserCRUD() {
                   <td>{user.isAdmin ? "Administrador" : "Cliente"}</td>
                   <td>{user._id}</td>
                   <td>
-                    <a className="btn btn-success" rel="stylesheet" href="">
+                    <a
+                      className="btn btn-success"
+                      rel="stylesheet"
+                      href={`/usuarios/${user.username}`}
+                    >
                       Editar
                     </a>
                   </td>
