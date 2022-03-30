@@ -12,7 +12,7 @@ function EditArticle() {
   React.useEffect(() => {
     const getArticle = async () => {
       const response = await axios.get(
-        `http://localhost:8000/articles/${params.id}`
+        `${process.env.REACT_APP_API_URL}/articles/${params.id}`
       );
       setArticle(response.data);
     };
@@ -30,7 +30,7 @@ function EditArticle() {
               Nombre
             </label>
             <input
-              value={article.name}
+              defaultValue={article.name}
               className="w-75 form-control"
               id="name"
               type="text"
@@ -39,9 +39,12 @@ function EditArticle() {
             <label className="mt-3 w-75 form-label" htmlFor="description">
               Descripción
             </label>
-            <textarea className="w-75 form-control" id="description" rows="4">
-              {article.description}
-            </textarea>
+            <textarea
+              defaultValue={article.description}
+              className="w-75 form-control"
+              id="description"
+              rows="4"
+            />
 
             <label className="mt-3 w-75 form-label" htmlFor="image">
               Imagen
@@ -52,7 +55,7 @@ function EditArticle() {
               Precio
             </label>
             <input
-              value={article.price}
+              defaultValue={article.price}
               className="w-75 form-control"
               id="price"
               type="number"
@@ -62,7 +65,7 @@ function EditArticle() {
               Volumen en cc
             </label>
             <input
-              value={article.sizecc}
+              defaultValue={article.sizecc}
               className="w-75 form-control"
               id="sicezz"
               type="number"
@@ -72,7 +75,7 @@ function EditArticle() {
               Stock
             </label>
             <input
-              value={article.stock}
+              defaultValue={article.stock}
               className="w-75 form-control"
               id="stock"
               type="number"
@@ -82,7 +85,7 @@ function EditArticle() {
               Categoría
             </label>
             <input
-              value={article.category}
+              defaultValue={article.category}
               className="w-75 form-control"
               id="category"
               type="text"
@@ -92,7 +95,7 @@ function EditArticle() {
               Mas vendidos?
             </label>
             <input
-              value={article.topSeller}
+              defaultValue={article.topSeller}
               className="w-75 form-control"
               id="category"
               type="text"
@@ -102,7 +105,7 @@ function EditArticle() {
               Ibus
             </label>
             <input
-              value={article.ibus}
+              defaultValue={article.ibus}
               className="w-75 form-control"
               id="ibus"
               type="text"

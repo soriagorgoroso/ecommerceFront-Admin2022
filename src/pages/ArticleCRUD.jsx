@@ -8,7 +8,9 @@ function ArticleCRUD() {
 
   React.useEffect(() => {
     const getArticles = async () => {
-      const response = await axios.get("http://localhost:8000/articles");
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/articles`
+      );
       setArticles(response.data);
     };
     getArticles();
