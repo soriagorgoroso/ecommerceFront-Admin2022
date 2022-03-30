@@ -8,6 +8,11 @@ function Statistics() {
       <NavBarAdmin />
       <Container>
         <h1>Estadisticas de ventas</h1>
+        <img
+          className="img-fluid"
+          src="./estadisticas/graphic-1606688.png"
+          alt="estadisticas"
+        />
       </Container>
     </>
   );
