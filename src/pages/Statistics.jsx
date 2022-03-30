@@ -10,7 +10,7 @@ function Statistics() {
         <h1>Estadisticas de ventas</h1>
         <img
           className="img-fluid"
-          src="./estadisticas/graphic-1606688.png"
+          src="/estadisticas/graphic-1606688.png"
           alt="estadisticas"
         />
       </Container>
