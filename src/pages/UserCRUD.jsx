@@ -31,7 +31,9 @@ function UserCRUD() {
         <Container>
           <div className="d-flex align-items-center justify-content-between">
             <h1>Usuarios</h1>
-            <button className="btn btn-primary">Agregar usuario ?</button>
+            <a href="/usuarios/nuevo" className="btn btn-primary">
+              Agregar usuario
+            </a>
           </div>
           <Table striped bordered hover size="sm">
             <thead>

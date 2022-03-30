@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
@@ -10,6 +10,12 @@ function EditUser() {
   const params = useParams();
   const [user, setUser] = React.useState(null);
   const userLogged = useSelector((state) => state.user);
+  //
+  const [firstname, setFirstname] = useState(null);
+  const [lastname, setLastname] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [telephone, setTelephone] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(null);
 
   React.useEffect(() => {
     const getUser = async () => {
@@ -61,7 +67,7 @@ function EditUser() {
               type="text"
             />
             <label className="mt-3 w-75 form-label" htmlFor="telephone">
-              Telefono
+              Teléfono
             </label>
             <input
               defaultValue={user.telephone}
