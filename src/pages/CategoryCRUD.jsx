@@ -23,7 +23,9 @@ function CategoryCRUD() {
         <Container>
           <div className="d-flex align-items-center justify-content-between">
             <h1>Categorias</h1>
-            <button className="btn btn-primary">Agregar categoria</button>
+            <a href="categorias/nuevo" className="btn btn-primary">
+              Agregar categoria
+            </a>
           </div>
           <Table striped bordered hover size="sm">
             <thead>
