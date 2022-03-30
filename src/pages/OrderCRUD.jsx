@@ -35,7 +35,7 @@ function OrderCRUD() {
             </thead>
             <tbody>
               {orders.map((order) => (
-                <tr>
+                <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt}</td>
 

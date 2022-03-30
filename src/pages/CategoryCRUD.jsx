@@ -32,7 +32,7 @@ function CategoryCRUD() {
             </thead>
             <tbody>
               {categories.map((category) => (
-                <tr>
+                <tr key={category._id}>
                   <td>{category._id}</td>
                   <td>{category.name}</td>
 

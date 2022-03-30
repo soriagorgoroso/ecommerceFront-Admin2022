@@ -33,21 +33,21 @@ function UserCRUD() {
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
-                <th>id</th>
                 <th>Nombre</th>
-                <th>Apelleido</th>
+                <th>Apellido</th>
                 <th>Usuario</th>
                 <th>Categoria</th>
+                <th>id</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr>
-                  <td>{user._id}</td>
+                <tr key={user._id}>
                   <td>{user.firstname}</td>
                   <td>{user.lastname}</td>
                   <td>{user.username}</td>
                   <td>{user.isAdmin ? "Administrador" : "Cliente"}</td>
+                  <td>{user._id}</td>
                   <td>
                     <a className="btn btn-success" rel="stylesheet" href="">
                       Editar

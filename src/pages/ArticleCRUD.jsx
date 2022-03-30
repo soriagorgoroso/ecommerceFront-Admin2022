@@ -35,7 +35,7 @@ function ArticleCRUD() {
             </thead>
             <tbody>
               {articles.map((article) => (
-                <tr>
+                <tr key={article.id}>
                   <td>{article.id}</td>
                   <td>{article.name}</td>
                   <td>{article.category}</td>
