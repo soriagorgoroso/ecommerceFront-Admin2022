@@ -1,0 +1,55 @@
+<>
+  //////////////////////////////////////////////test radio para opcion de admin
+  o no en el editUser
+  <div class="form-check mt-3">
+    <input
+      class="form-check-input"
+      type="radio"
+      name="flexRadioDefault"
+      id="admin"
+      onClick={() => setUser(...user, (user.isAdmin = true))}
+    />
+    <label className="form-check-label" for="admin">
+      Administrador
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      type="radio"
+      name="flexRadioDefault"
+      id="client"
+      onClick={() => setUser(...user, (user.isAdmin = true))}
+    />
+    <label className="form-check-label" for="client">
+      Cliente
+    </label>
+  </div>
+  /////////////////////////////////////////////////test select para opcion de
+  admin o no en el editUser
+  <label className="mt-3 w-75 form-label" htmlFor="isAdmin">
+    Tipo de usuario
+  </label>
+  <select
+    id="isAdmin"
+    className="form-select w-25"
+    aria-label="Default select example"
+  >
+    {user.isAdmin ? (
+      <>
+        <option selected value={true}>
+          Administrador
+        </option>
+        <option value={false}>Cliente</option>
+      </>
+    ) : (
+      <>
+        <option value={false}>Administrador</option>
+        <option selected value={true}>
+          Cliente
+        </option>
+      </>
+    )}
+  </select>
+  //////////////////////////////////////////////////////////////////////////////////////////////
+</>;
