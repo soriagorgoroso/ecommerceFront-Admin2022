@@ -13,6 +13,9 @@ import EditUser from "./pages/EditUser";
 import EditCategory from "./pages/EditCategory";
 import Statistics from "./pages/Statistics";
 import EditOrder from "./pages/EditOrder";
+import UserCreate from "./pages/UserCreate";
+import ArticleCreate from "./pages/ArticleCreate";
+import CategoryCreate from "./pages/CategoryCreate";
 
 function App() {
   const loggedUser = useSelector((state) => state.user);
@@ -21,6 +24,8 @@ function App() {
     <div className="app">
       {loggedUser ? (
         <Routes>
+          {/* login */}
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
           {/* pages */}
@@ -34,8 +39,10 @@ function App() {
           <Route path="/usuarios/:username" element={<EditUser />} />
           <Route path="/categorias/:name" element={<EditCategory />} />
           <Route path="/ordenes/:id" element={<EditOrder />} />
-          {/* login */}
-          <Route path="/" element={<Login />} />
+          {/* create pages */}
+          <Route path="/usuarios/nuevo" element={<UserCreate />} />
+          <Route path="/articulos/nuevo" element={<ArticleCreate />} />
+          <Route path="/categorias/nuevo" element={<CategoryCreate />} />
         </Routes>
       ) : (
         <Routes>
