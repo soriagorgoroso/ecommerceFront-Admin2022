@@ -8,7 +8,9 @@ function CategoryCRUD() {
 
   React.useEffect(() => {
     const getCategories = async () => {
-      const response = await axios.get("http://localhost:8000/categories");
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/categories`
+      );
       setcategories(response.data);
     };
     getCategories();
