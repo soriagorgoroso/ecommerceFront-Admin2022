@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
-import ButtonCreateArticle from "../components/ButtonCreateArticle";
 
 function ArticleCreate() {
   const navigate = useNavigate();
@@ -27,7 +26,7 @@ function ArticleCreate() {
     for (const field in formFields) {
       if (field === "") return;
     }
-    const response = await axios.post(
+    const response = await axios(
       {
         method: "post",
         url: `${process.env.REACT_APP_API_URL}/articles`,
@@ -62,7 +61,6 @@ function ArticleCreate() {
           <input
             onChange={(ev) => {
               setFormFields({ ...formFields, name: ev.target.value });
-              console.log(ev.target.value);
             }}
             value={formFields.name}
             className="w-75 form-control"
@@ -76,7 +74,6 @@ function ArticleCreate() {
           <input
             onChange={(ev) => {
               setFormFields({ ...formFields, description: ev.target.value });
-              console.log(ev.target.value);
             }}
             value={formFields.description}
             className="w-75 form-control"
@@ -104,7 +101,6 @@ function ArticleCreate() {
             placeholder="placeholder.jpg"
             onChange={(ev) => {
               setFormFields({ ...formFields, image: ev.target.value });
-              console.log(ev.target.value);
             }}
             value={formFields.image}
             //defaultValue="placeholder.jpg"
@@ -120,7 +116,6 @@ function ArticleCreate() {
           <input
             onChange={(ev) => {
               setFormFields({ ...formFields, price: ev.target.value });
-              console.log(ev.target.value);
             }}
             value={formFields.price}
             className="w-75 form-control"
@@ -134,7 +129,6 @@ function ArticleCreate() {
           <input
             onChange={(ev) => {
               setFormFields({ ...formFields, sizecc: ev.target.value });
-              console.log(ev.target.value);
             }}
             value={formFields.sizecc}
             className="w-75 form-control"
@@ -148,7 +142,6 @@ function ArticleCreate() {
           <input
             onChange={(ev) => {
               setFormFields({ ...formFields, stock: ev.target.value });
-              console.log(ev.target.value);
             }}
             value={formFields.stock}
             className="w-75 form-control"
@@ -162,7 +155,6 @@ function ArticleCreate() {
           <input
             onChange={(ev) => {
               setFormFields({ ...formFields, category: ev.target.value });
-              console.log(ev.target.value);
             }}
             value={formFields.category}
             className="w-75 form-control"
@@ -176,7 +168,6 @@ function ArticleCreate() {
           <input
             onChange={(ev) => {
               setFormFields({ ...formFields, ibus: ev.target.value });
-              console.log(ev.target.value);
             }}
             value={formFields.ibus}
             className="w-75 form-control"
