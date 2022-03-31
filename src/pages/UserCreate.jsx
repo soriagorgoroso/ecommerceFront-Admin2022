@@ -4,14 +4,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
-import ButtonCreateUser from "../components/ButtonCreateUser";
 
 function UserCreate() {
   const navigate = useNavigate();
   const userLogged = useSelector((state) => state.user);
-
   const [warning, setWarning] = React.useState(null);
-
   const [formFields, setFormFields] = React.useState({
     firstname: "",
     lastname: "",
@@ -27,21 +24,21 @@ function UserCreate() {
     for (const field in formFields) {
       if (field === "") return;
     }
-    const response = await axios.post(
-      `${process.env.REACT_APP_API_URL}/users`,
+    const response = await axios(
       {
+        method: "post",
+        url: `${process.env.REACT_APP_API_URL}/users`,
         headers: {
           Authorization: "Bearer " + userLogged.token,
         },
+        data: formFields,
       },
-      formFields,
       {
         validateStatus: function (status) {
           return status >= 200;
         },
       }
     );
-    console.log(response);
     if (response.statusText === "OK") {
       navigate("/usuarios");
     } else {
@@ -95,7 +92,7 @@ function UserCreate() {
           />
 
           <label className="mt-3 w-75 form-label" htmlFor="telephone">
-            Teléono
+            Teléfono
           </label>
           <input
             onChange={(ev) =>
@@ -104,7 +101,7 @@ function UserCreate() {
             value={formFields.telephone}
             className="w-75 form-control"
             id="telephone"
-            type="number"
+            type="tel"
           />
 
           <label className="mt-3 w-75 form-label" htmlFor="username">
@@ -145,11 +142,12 @@ function UserCreate() {
             id="password"
             type="password"
           />
+          {warning && <p className="text-danger">{warning}</p>}
+          <button className="btn btn-success mt-3" type="submit">
+            Guardar cambios
+          </button>
         </form>
-        {warning && <p className="text-danger">{warning}</p>}
-        <ButtonCreateUser />
-        <br />
-        <a className="my-3 btn btn-danger" href="/usuarios">
+        <a className="mt-3 btn btn-danger" href="/usuarios">
           Ir atrás
         </a>
       </Container>
