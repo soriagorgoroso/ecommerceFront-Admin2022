@@ -14,11 +14,13 @@ function ArticleCreate() {
     name: "",
     description: "",
     price: "",
-    sicezz: "",
+    sizecc: "",
     stock: "",
     category: "",
     ibus: "",
+    image: "",
   });
+  console.log(formFields);
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
@@ -26,13 +28,14 @@ function ArticleCreate() {
       if (field === "") return;
     }
     const response = await axios.post(
-      `${process.env.REACT_APP_API_URL}/articles`,
       {
+        method: "post",
+        url: `${process.env.REACT_APP_API_URL}/articles`,
         headers: {
           Authorization: "Bearer " + userLogged.token,
         },
+        data: formFields,
       },
-      formFields,
       {
         validateStatus: function (status) {
           return status >= 200;
@@ -57,9 +60,10 @@ function ArticleCreate() {
             Nombre
           </label>
           <input
-            onChange={(ev) =>
-              setFormFields({ ...formFields, name: ev.target.value })
-            }
+            onChange={(ev) => {
+              setFormFields({ ...formFields, name: ev.target.value });
+              console.log(ev.target.value);
+            }}
             value={formFields.name}
             className="w-75 form-control"
             id="name"
@@ -69,7 +73,17 @@ function ArticleCreate() {
           <label className="mt-3 w-75 form-label" htmlFor="description">
             Descripción
           </label>
-          <textarea
+          <input
+            onChange={(ev) => {
+              setFormFields({ ...formFields, description: ev.target.value });
+              console.log(ev.target.value);
+            }}
+            value={formFields.description}
+            className="w-75 form-control"
+            id="description"
+            type="text"
+          />
+          {/* <textarea
             onChange={(ev) =>
               setFormFields({ ...formFields, description: ev.target.value })
             }
@@ -77,20 +91,37 @@ function ArticleCreate() {
             className="w-75 form-control"
             id="description"
             rows="4"
-          />
+          /> */}
 
-          <label className="mt-3 w-75 form-label" htmlFor="image">
+          {/* <label className="mt-3 w-75 form-label" htmlFor="image">
             Imagen
           </label>
-          <input className="w-75 form-control" id="image" type="file" />
+          <input className="w-75 form-control" id="image" type="file" /> */}
+          <label className="mt-3 w-75 form-label" htmlFor="image">
+            Imagen "placeholder.jpg"
+          </label>
+          <input
+            placeholder="placeholder.jpg"
+            onChange={(ev) => {
+              setFormFields({ ...formFields, image: ev.target.value });
+              console.log(ev.target.value);
+            }}
+            value={formFields.image}
+            //defaultValue="placeholder.jpg"
+            // readOnly
+            className="w-75 form-control"
+            id="image"
+            type="text"
+          />
 
           <label className="mt-3 w-75 form-label" htmlFor="price">
             Precio
           </label>
           <input
-            onChange={(ev) =>
-              setFormFields({ ...formFields, price: ev.target.value })
-            }
+            onChange={(ev) => {
+              setFormFields({ ...formFields, price: ev.target.value });
+              console.log(ev.target.value);
+            }}
             value={formFields.price}
             className="w-75 form-control"
             id="price"
@@ -101,12 +132,13 @@ function ArticleCreate() {
             Volumen en cc
           </label>
           <input
-            onChange={(ev) =>
-              setFormFields({ ...formFields, sicezz: ev.target.value })
-            }
-            value={formFields.sicezz}
+            onChange={(ev) => {
+              setFormFields({ ...formFields, sizecc: ev.target.value });
+              console.log(ev.target.value);
+            }}
+            value={formFields.sizecc}
             className="w-75 form-control"
-            id="sicezz"
+            id="sizecc"
             type="number"
           />
 
@@ -114,9 +146,10 @@ function ArticleCreate() {
             Stock
           </label>
           <input
-            onChange={(ev) =>
-              setFormFields({ ...formFields, stock: ev.target.value })
-            }
+            onChange={(ev) => {
+              setFormFields({ ...formFields, stock: ev.target.value });
+              console.log(ev.target.value);
+            }}
             value={formFields.stock}
             className="w-75 form-control"
             id="stock"
@@ -127,9 +160,10 @@ function ArticleCreate() {
             Categoría
           </label>
           <input
-            onChange={(ev) =>
-              setFormFields({ ...formFields, category: ev.target.value })
-            }
+            onChange={(ev) => {
+              setFormFields({ ...formFields, category: ev.target.value });
+              console.log(ev.target.value);
+            }}
             value={formFields.category}
             className="w-75 form-control"
             id="category"
@@ -140,19 +174,21 @@ function ArticleCreate() {
             Ibus
           </label>
           <input
-            onChange={(ev) =>
-              setFormFields({ ...formFields, ibus: ev.target.value })
-            }
+            onChange={(ev) => {
+              setFormFields({ ...formFields, ibus: ev.target.value });
+              console.log(ev.target.value);
+            }}
             value={formFields.ibus}
             className="w-75 form-control"
             id="ibus"
             type="text"
           />
+          {warning && <p className="text-danger">{warning}</p>}
+          <button className="btn btn-success mt-3" type="submit">
+            Guardar cambios
+          </button>
         </form>
-        {warning && <p className="text-danger">{warning}</p>}
-        <ButtonCreateArticle />
-        <br />
-        <a className="my-3 btn btn-danger" href="/articulos">
+        <a className="mt-3 btn btn-danger" href="/articulos">
           Ir atrás
         </a>
       </Container>

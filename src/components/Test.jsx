@@ -34,6 +34,7 @@
     id="isAdmin"
     className="form-select w-25"
     aria-label="Default select example"
+    onChange={(e) => setUser(...user, (user.isAdmin = e.target.value))} // check si el value de las option es boolean o es string, si es tring poner otro valor (0 y 1) y poner un if
   >
     {user.isAdmin ? (
       <>
@@ -44,8 +45,8 @@
       </>
     ) : (
       <>
-        <option value={false}>Administrador</option>
-        <option selected value={true}>
+        <option value={true}>Administrador</option>
+        <option selected value={false}>
           Cliente
         </option>
       </>

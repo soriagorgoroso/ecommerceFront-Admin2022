@@ -31,7 +31,7 @@ function EditCategory() {
             </label>
             <input
               defaultValue={category.name}
-              className="w-75 form-control"
+              className="w-25 form-control"
               id="name"
               type="text"
             />
