@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Container } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -56,30 +56,37 @@ function EditCategory() {
       <>
         <NavBarAdmin />
         <Container>
-          <h1>Editar Categoria: {category.name}</h1>
-          <form onSubmit={handleSubmit} className="mb-5">
-            <label className="mt-3 w-75 form-label" htmlFor="name">
-              Nombre
-            </label>
-            <input
-              value={category.name}
-              className="w-25 form-control"
-              id="name"
-              type="text"
-              onChange={(ev) => {
-                setCategory({ ...category, name: ev.target.value });
-                setEditedCategory({ ...editedCategory, name: ev.target.value });
-              }}
-            />
-            {warning && <p className="text-danger">{warning}</p>}
-            <button className="btn btn-success mt-3" type="submit">
-              Guardar cambios
-            </button>
-          </form>
-
-          <a className="my-3 btn btn-danger" href="/categorias">
-            Ir atrás
-          </a>
+          <Row>
+            <Col className="marginCol">
+              {" "}
+              <h1>Editar Categoria: {category.name}</h1>
+              <form onSubmit={handleSubmit} className="mb-5">
+                <label className="mt-3 w-75 form-label" htmlFor="name">
+                  Nombre
+                </label>
+                <input
+                  value={category.name}
+                  className="w-25 form-control"
+                  id="name"
+                  type="text"
+                  onChange={(ev) => {
+                    setCategory({ ...category, name: ev.target.value });
+                    setEditedCategory({
+                      ...editedCategory,
+                      name: ev.target.value,
+                    });
+                  }}
+                />
+                {warning && <p className="text-danger">{warning}</p>}
+                <button className="btn btn-success mt-3" type="submit">
+                  Guardar cambios
+                </button>
+              </form>
+              <a className="my-3 btn btn-danger" href="/categorias">
+                Ir atrás
+              </a>
+            </Col>
+          </Row>
         </Container>
       </>
     )

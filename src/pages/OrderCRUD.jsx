@@ -1,7 +1,7 @@
 import React from "react";
 import NavBarAdmin from "../components/NavBarAdmin";
 import axios from "axios";
-import { Table, Container } from "react-bootstrap";
+import { Table, Container, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 function OrderCRUD() {
@@ -28,33 +28,38 @@ function OrderCRUD() {
       <>
         <NavBarAdmin />
         <Container>
-          <h1>Ordenes</h1>
-          <Table striped bordered hover size="sm">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>Fecha de compra</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => (
-                <tr key={order._id}>
-                  <td>{order._id}</td>
-                  <td>{order.createdAt}</td>
+          <Row>
+            <Col className="marginCol">
+              {" "}
+              <h1>Ordenes</h1>
+              <Table striped bordered hover size="sm">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Fecha de compra</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {orders.map((order) => (
+                    <tr key={order._id}>
+                      <td>{order._id}</td>
+                      <td>{order.createdAt}</td>
 
-                  <td>
-                    <a
-                      className="btn btn-success"
-                      rel="stylesheet"
-                      href={`/ordenes/${order.id}`}
-                    >
-                      Editar
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
+                      <td>
+                        <a
+                          className="btn btn-success"
+                          rel="stylesheet"
+                          href={`/ordenes/${order.id}`}
+                        >
+                          Editar
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </Col>
+          </Row>
         </Container>
       </>
     )

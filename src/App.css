@@ -2,3 +2,7 @@ body {
   background-color: rgb(236, 235, 234);
   font-family: "Roboto", sans-serif;
 }
+.marginCol {
+  margin-left: 100px;
+  margin-top: 70px;
+}

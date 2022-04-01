@@ -33,7 +33,7 @@ function Login() {
   };
   return (
     <>
-      <div className="containerLogin">
+      <div className="containerLogin d-flex justify-content-center align-items-center">
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:700,600"
           rel="stylesheet"
@@ -42,7 +42,7 @@ function Login() {
 
         <form method="post" action="index.html" onSubmit={handleSubmit}>
           <div className="box">
-            <h1 className="title">Dashboard</h1>
+            <h1 className="title">Ingresa</h1>
 
             <input
               type="email"
@@ -67,6 +67,7 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <p className="pass">Olvidaste tu contraseña?</p>
 
             <button type="submit" className="btn">
               Sign In
@@ -77,8 +78,6 @@ function Login() {
             </button>
           </div>
         </form>
-
-        <p className="pass">Forgot your password?</p>
       </div>
     </>
   );

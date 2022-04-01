@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 
 function Admin() {
@@ -7,8 +7,13 @@ function Admin() {
     <>
       <NavBarAdmin />
       <Container>
-        <h1>Pagina del administrador</h1>
-        <p>Bienvenido a la pagina del administrador de Hack Beer</p>
+        <Row>
+          <Col className="marginCol">
+            {" "}
+            <h1>Pagina del administrador</h1>
+            <p>Bienvenido a la pagina del administrador de Hack Beer</p>
+          </Col>
+        </Row>
       </Container>
     </>
   );

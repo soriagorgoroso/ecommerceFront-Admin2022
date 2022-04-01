@@ -3,53 +3,69 @@ import "./NavBarAdmin.css";
 function NavBarAdmin() {
   return (
     <>
-      <nav className="navbar navbar-expand-custom navbar-mainbg">
-        <a className="navbar-brand navbar-logo" href="/admin">
-          Hack Beer
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i className="fas fa-bars text-white"></i>
-        </button>
-        <div className="" id="navbarSupportedContent">
-          <ul className="navbar-nav ">
-            <div className="">
-              <div className="left"></div>
-              <div className="right"></div>
+      <div className="dashboard">
+        <ul className="dashboard__bar">
+          <li id="logo" className="dashboard__bar__item">
+            <a href="#logo" className="dashboard__bar__item--logo">
+              <i className="fas fa-chess-knight"></i>
+            </a>
+          </li>
+          <li id="view_site" className="dashboard__bar__item">
+            <a href="#view_site" className="dashboard__bar__item--btn">
+              <i className="fas fa-home"></i>Hack Bier
+            </a>
+            <div className="dashboard__submenu">
+              <a href="">Ir al sitio</a>
             </div>
-            <li className="nav-item">
-              <a className="nav-link" href="/usuarios">
-                <i className=""></i>Usuarios
+          </li>
+          <li id="profile" className="dashboard__bar__item">
+            <a href="#profile" className="dashboard__bar__item--btn">
+              <i className="fas fa-portrait"></i>Bienvenido
+            </a>
+            <div className="dashboard__submenu">
+              <a href="">Logout</a>
+            </div>
+          </li>
+        </ul>
+
+        <ui className="dashboard__menu">
+          <li id="products" className="dashboard__menu__item">
+            <a href="/articulos" className="dashboard__menu__item--btn">
+              <i className="fas fa-drum"></i>Articulos
+              <span className="right-arrow"></span>
+            </a>
+          </li>
+          <li id="articles" className="dashboard__menu__item">
+            <a href="/categorias" className="dashboard__menu__item--btn">
+              <i className="fas fa-newspaper"></i>Categorias
+              <span className="right-arrow"></span>
+            </a>
+          </li>
+          <li id="pages" className="dashboard__menu__item">
+            <a href="/ordenes" className="dashboard__menu__item--btn">
+              <i className="fas fa-columns"></i>Ordenes
+              <span className="right-arrow"></span>
+            </a>
+            <div className="dashboard__submenu">
+              <a className="dashboard__submenu--btn" href="#pages">
+                Todas las ordenes
               </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/articulos">
-                <i className="far fa-clone"></i>Articulos
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/categorias">
-                <i className="far fa-calendar-alt"></i>Categorias
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/ordenes">
-                <i className="far fa-chart-bar"></i>Ordenes
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/estadisticas">
-                <i className="far fa-copy"></i>Estadisticas
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+            </div>
+          </li>
+          <li id="users" className="dashboard__menu__item">
+            <a href="/usuarios" className="dashboard__menu__item--btn">
+              <i className="fas fa-user"></i>Usuarios
+              <span className="right-arrow"></span>
+            </a>
+          </li>
+          <li id="users" className="dashboard__menu__item">
+            <a href="/estadisticas" className="dashboard__menu__item--btn">
+              <i className="fas fa-user"></i>Estadisticas
+              <span className="right-arrow"></span>
+            </a>
+          </li>
+        </ui>
+      </div>
     </>
   );
 }
