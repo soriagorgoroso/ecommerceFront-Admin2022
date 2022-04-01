@@ -3,13 +3,16 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 import { useParams } from "react-router-dom";
-import ButtonEditOrder from "../components/ButtonEditOrder";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function EditOrder() {
+  const navigate = useNavigate();
   const params = useParams();
-  const [order, setOrder] = React.useState(null);
   const userLogged = useSelector((state) => state.user);
+  const [warning, setWarning] = React.useState(null);
+  const [order, setOrder] = React.useState(null);
+  const [editedOrder, setEditedOrder] = React.useState({});
 
   React.useEffect(() => {
     const getOrder = async () => {
@@ -26,13 +29,40 @@ function EditOrder() {
     getOrder();
   }, [params.id]);
 
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    for (const field in editedOrder) {
+      if (field === "") return;
+    }
+    const response = await axios(
+      {
+        method: "patch",
+        url: `${process.env.REACT_APP_API_URL}/orders/${order.id}`,
+        headers: {
+          Authorization: "Bearer " + userLogged.token,
+        },
+        data: editedOrder,
+      },
+      {
+        validateStatus: function (status) {
+          return status >= 200;
+        },
+      }
+    );
+    if (response.statusText === "OK") {
+      navigate("/ordenes");
+    } else {
+      setWarning(response.data.msg);
+    }
+  };
+
   return (
     order && (
       <>
         <NavBarAdmin />
         <Container>
           <h1>Editar Orden número: {order.id}</h1>
-          <form action="" method="post" className="mb-5">
+          <form onSubmit={handleSubmit} className="mb-5">
             <label className="mt-3 w-75 form-label" htmlFor="status">
               Estado
             </label>
@@ -41,10 +71,16 @@ function EditOrder() {
               className="w-75 form-control"
               id="status"
               type="text"
+              onChange={(ev) => {
+                setOrder({ ...order, status: ev.target.value });
+                setEditedOrder({ ...editedOrder, status: ev.target.value });
+              }}
             />
+            {warning && <p className="text-danger">{warning}</p>}
+            <button className="btn btn-success mt-3" type="submit">
+              Guardar cambios
+            </button>
           </form>
-          <ButtonEditOrder />
-          <br />
           <a className="my-3 btn btn-danger" href="/ordenes">
             Ir atrás
           </a>
