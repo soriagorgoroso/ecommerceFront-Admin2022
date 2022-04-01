@@ -2,7 +2,7 @@ import React from "react";
 
 function ButtonEditCategory() {
   return (
-    <button className="btn btn-success" type="submit">
+    <button className="btn btn-success mt-3" type="submit">
       Guardar cambios
     </button>
   );
