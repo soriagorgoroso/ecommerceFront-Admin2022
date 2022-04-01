@@ -3,19 +3,16 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 import { useParams } from "react-router-dom";
-import ButtonEditUser from "../components/ButtonEditUser";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function EditUser() {
   const params = useParams();
-  const [user, setUser] = React.useState(null);
   const userLogged = useSelector((state) => state.user);
-  //
-  const [firstname, setFirstname] = useState(null);
-  const [lastname, setLastname] = useState(null);
-  const [address, setAddress] = useState(null);
-  const [telephone, setTelephone] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(null);
+  const navigate = useNavigate();
+  const [warning, setWarning] = React.useState(null);
+  const [user, setUser] = React.useState(null);
+  const [editedUser, setEditedUser] = React.useState({});
 
   React.useEffect(() => {
     const getUser = async () => {
@@ -32,13 +29,40 @@ function EditUser() {
     getUser();
   }, [params.username]);
 
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    for (const field in editedUser) {
+      if (field === "") return;
+    }
+    const response = await axios(
+      {
+        method: "patch",
+        url: `${process.env.REACT_APP_API_URL}/users/${user.username}`,
+        headers: {
+          Authorization: "Bearer " + userLogged.token,
+        },
+        data: editedUser,
+      },
+      {
+        validateStatus: function (status) {
+          return status >= 200;
+        },
+      }
+    );
+    if (response.statusText === "OK") {
+      navigate("/usuarios");
+    } else {
+      setWarning(response.data.msg);
+    }
+  };
+
   return (
     user && (
       <>
         <NavBarAdmin />
         <Container>
           <h1>Editar Usuario: {user.username}</h1>
-          <form action="" method="post" className="mb-5">
+          <form onSubmit={handleSubmit} className="mb-5">
             <label className="mt-3 w-75 form-label" htmlFor="firstname">
               Nombre
             </label>
@@ -47,6 +71,10 @@ function EditUser() {
               className="w-75 form-control"
               id="firstname"
               type="text"
+              onChange={(ev) => {
+                setUser({ ...user, firstname: ev.target.value });
+                setEditedUser({ ...editedUser, firstname: ev.target.value });
+              }}
             />
             <label className="mt-3 w-75 form-label" htmlFor="lastname">
               Apellido
@@ -56,6 +84,10 @@ function EditUser() {
               className="w-75 form-control"
               id="lastname"
               type="text"
+              onChange={(ev) => {
+                setUser({ ...user, lastname: ev.target.value });
+                setEditedUser({ ...editedUser, lastname: ev.target.value });
+              }}
             />
             <label className="mt-3 w-75 form-label" htmlFor="address">
               Domicilio
@@ -65,6 +97,10 @@ function EditUser() {
               className="w-75 form-control"
               id="address"
               type="text"
+              onChange={(ev) => {
+                setUser({ ...user, address: ev.target.value });
+                setEditedUser({ ...editedUser, address: ev.target.value });
+              }}
             />
             <label className="mt-3 w-75 form-label" htmlFor="telephone">
               Teléfono
@@ -74,6 +110,10 @@ function EditUser() {
               className="w-75 form-control"
               id="telephone"
               type="text"
+              onChange={(ev) => {
+                setUser({ ...user, telephone: ev.target.value });
+                setEditedUser({ ...editedUser, telephone: ev.target.value });
+              }}
             />
             <label className="mt-3 w-75 form-label" htmlFor="isAdmin">
               Es administrador
@@ -83,10 +123,16 @@ function EditUser() {
               className="w-75 form-control"
               id="isAdmin"
               type="text"
+              onChange={(ev) => {
+                setUser({ ...user, isAdmin: ev.target.value });
+                setEditedUser({ ...editedUser, isAdmin: ev.target.value });
+              }}
             />
+            {warning && <p className="text-danger">{warning}</p>}
+            <button className="btn btn-success mt-3" type="submit">
+              Guardar cambios
+            </button>
           </form>
-          <ButtonEditUser />
-          <br />
           <a className="my-3 btn btn-danger" href="/usuarios">
             Ir atrás
           </a>
