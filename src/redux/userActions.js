@@ -3,7 +3,7 @@ const actions = {
     return { type: "LOGIN", payload: sessionData };
   },
   logout: () => {
-    return { type: "LOGOUT" };
+    return { type: "LOGOUT", payload: [] };
   },
 };
 
