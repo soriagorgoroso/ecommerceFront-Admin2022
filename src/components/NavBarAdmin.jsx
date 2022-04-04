@@ -1,6 +1,31 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./NavBarAdmin.css";
+import actions from "../redux/userActions";
+import axios from "axios";
 function NavBarAdmin() {
+  const user = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = async (ev) => {
+    ev.preventDefault();
+    try {
+      console.log(user);
+      await axios({
+        url: process.env.REACT_APP_API_URL + `/users/logout`,
+        method: "POST",
+        headers: { Authorization: `Bearer ${user.token}` },
+      });
+      dispatch(actions.logout());
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="dashboard">
@@ -23,7 +48,9 @@ function NavBarAdmin() {
               <i className="fas fa-portrait"></i>Bienvenido
             </a>
             <div className="dashboard__submenu">
-              <a href="">Logout</a>
+              <a href="" onClick={handleLogout}>
+                Logout
+              </a>
             </div>
           </li>
         </ul>

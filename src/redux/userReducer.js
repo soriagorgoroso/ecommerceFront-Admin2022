@@ -4,7 +4,7 @@ function userReducer(user = null, action) {
       return action.payload;
 
     case "LOGOUT":
-      return {};
+      return null;
 
     default:
       return user;
