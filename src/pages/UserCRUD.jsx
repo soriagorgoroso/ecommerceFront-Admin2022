@@ -77,7 +77,7 @@ function UserCRUD() {
                                 rel="stylesheet"
                                 href={`/usuarios/${user.username}`}
                               >
-                                Editar
+                                <i class="fa-solid fa-pen"></i>
                               </a>
                             </td>
                             <td>
@@ -86,7 +86,7 @@ function UserCRUD() {
                                 rel="stylesheet"
                                 href=""
                               >
-                                Eliminar
+                                <i class="fa-solid fa-trash-can"></i>{" "}
                               </a>
                             </td>
                           </tr>

@@ -62,7 +62,7 @@ function CategoryCRUD() {
                                 rel="stylesheet"
                                 href={`/categorias/${category.name}`}
                               >
-                                Editar
+                                <i class="fa-solid fa-pen"></i>
                               </a>
                             </td>
                             <td>
@@ -71,7 +71,7 @@ function CategoryCRUD() {
                                 rel="stylesheet"
                                 href=""
                               >
-                                Eliminar
+                                <i class="fa-solid fa-trash-can"></i>{" "}
                               </a>
                             </td>
                           </tr>

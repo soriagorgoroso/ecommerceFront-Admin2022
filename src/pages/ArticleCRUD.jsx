@@ -66,7 +66,7 @@ function ArticleCRUD() {
                                 rel="stylesheet"
                                 href={`/articulos/${article.id}`}
                               >
-                                Editar
+                                <i class="fa-solid fa-pen"></i>
                               </a>
                             </td>
                             <td>
@@ -75,7 +75,7 @@ function ArticleCRUD() {
                                 rel="stylesheet"
                                 href="/"
                               >
-                                Eliminar
+                                <i class="fa-solid fa-trash-can"></i>{" "}
                               </a>
                             </td>
                           </tr>

@@ -66,7 +66,7 @@ function OrderCRUD() {
                                 rel="stylesheet"
                                 href={`/ordenes/${order.id}`}
                               >
-                                Editar
+                                <i class="fa-solid fa-pen"></i>
                               </a>
                             </td>
                           </tr>
