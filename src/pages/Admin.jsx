@@ -8,7 +8,7 @@ function Admin() {
       <NavBarAdmin />
       <Container>
         <Row>
-          <Col className="marginCol">
+          <Col className="text-white">
             {" "}
             <h1>Pagina del administrador</h1>
             <p>Bienvenido a la pagina del administrador de Hack Beer</p>

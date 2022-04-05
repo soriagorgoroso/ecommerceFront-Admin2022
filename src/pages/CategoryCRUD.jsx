@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBarAdmin from "../components/NavBarAdmin";
 import axios from "axios";
-import { Table, Container, Col, Row } from "react-bootstrap";
+import { Table, Container, Col, Row, Card } from "react-bootstrap";
 
 function CategoryCRUD() {
   const [categories, setcategories] = React.useState(null);
@@ -21,48 +21,57 @@ function CategoryCRUD() {
       <>
         <NavBarAdmin />
         <Container>
-          <Row>
-            <Col className="marginCol">
-              {" "}
-              <div className="d-flex align-items-center justify-content-between">
-                <h1>Categorias</h1>
-                <a href="categorias/nuevo" className="btn btn-primary">
-                  Agregar categoria
-                </a>
-              </div>
-              <Table striped bordered hover size="sm">
-                <thead>
-                  <tr>
-                    <th>id</th>
-                    <th>Nombre</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {categories.map((category) => (
-                    <tr key={category._id}>
-                      <td>{category._id}</td>
-                      <td>{category.name}</td>
+          <div className="content">
+            <Row>
+              <Col md="12">
+                <Card>
+                  <Card.Header>
+                    <Card.Title tag="h4">Categorias</Card.Title>
+                    <a href="categorias/nuevo" className="btn btn-primary">
+                      Agregar categoria
+                    </a>
+                  </Card.Header>
+                  <Card.Body>
+                    <Table className="tablesorter" responsive>
+                      <thead className="text-primary">
+                        <tr>
+                          <th>id</th>
+                          <th>Nombre</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {categories.map((category) => (
+                          <tr key={category._id}>
+                            <td>{category._id}</td>
+                            <td>{category.name}</td>
 
-                      <td>
-                        <a
-                          className="btn btn-success"
-                          rel="stylesheet"
-                          href={`/categorias/${category.name}`}
-                        >
-                          Editar
-                        </a>
-                      </td>
-                      <td>
-                        <a className="btn btn-danger" rel="stylesheet" href="">
-                          Eliminar
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </Col>
-          </Row>
+                            <td>
+                              <a
+                                className="btn btn-success"
+                                rel="stylesheet"
+                                href={`/categorias/${category.name}`}
+                              >
+                                Editar
+                              </a>
+                            </td>
+                            <td>
+                              <a
+                                className="btn btn-danger"
+                                rel="stylesheet"
+                                href=""
+                              >
+                                Eliminar
+                              </a>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </div>
         </Container>
       </>
     )

@@ -2,6 +2,21 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./NavBarAdmin.css";
+import {
+  Table,
+  Container,
+  Row,
+  Col,
+  Card,
+  Navbar,
+  Offcanvas,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+
 import actions from "../redux/userActions";
 import axios from "axios";
 function NavBarAdmin() {
@@ -28,71 +43,101 @@ function NavBarAdmin() {
 
   return (
     <>
-      <div className="dashboard">
-        <ul className="dashboard__bar">
-          <li id="logo" className="dashboard__bar__item">
-            <a href="#logo" className="dashboard__bar__item--logo">
-              <i className="fas fa-chess-knight"></i>
-            </a>
-          </li>
-          <li id="view_site" className="dashboard__bar__item">
-            <a href="#view_site" className="dashboard__bar__item--btn">
-              <i className="fas fa-home"></i>Hack Bier
-            </a>
-            <div className="dashboard__submenu">
-              <a href="">Ir al sitio</a>
-            </div>
-          </li>
-          <li id="profile" className="dashboard__bar__item">
-            <a href="#profile" className="dashboard__bar__item--btn">
-              <i className="fas fa-portrait"></i>Bienvenido
-            </a>
-            <div className="dashboard__submenu">
-              <a href="" onClick={handleLogout}>
-                Logout
-              </a>
-            </div>
-          </li>
-        </ul>
+      <Navbar bg="dark" className="mb-5" ticky="top" expand={false}>
+        <Container fluid>
+          <Navbar.Brand className="text-white" href="/">
+            Panel de Administrador
+          </Navbar.Brand>
 
-        <ui className="dashboard__menu">
-          <li id="products" className="dashboard__menu__item">
-            <a href="/articulos" className="dashboard__menu__item--btn">
-              <i className="fas fa-drum"></i>Articulos
-              <span className="right-arrow"></span>
-            </a>
-          </li>
-          <li id="articles" className="dashboard__menu__item">
-            <a href="/categorias" className="dashboard__menu__item--btn">
-              <i className="fas fa-newspaper"></i>Categorias
-              <span className="right-arrow"></span>
-            </a>
-          </li>
-          <li id="pages" className="dashboard__menu__item">
-            <a href="/ordenes" className="dashboard__menu__item--btn">
-              <i className="fas fa-columns"></i>Ordenes
-              <span className="right-arrow"></span>
-            </a>
-            <div className="dashboard__submenu">
-              <a className="dashboard__submenu--btn" href="#pages">
-                Todas las ordenes
-              </a>
-            </div>
-          </li>
-          <li id="users" className="dashboard__menu__item">
-            <a href="/usuarios" className="dashboard__menu__item--btn">
-              <i className="fas fa-user"></i>Usuarios
-              <span className="right-arrow"></span>
-            </a>
-          </li>
-          <li id="users" className="dashboard__menu__item">
-            <a href="/estadisticas" className="dashboard__menu__item--btn">
-              <i className="fas fa-user"></i>Estadisticas
-              <span className="right-arrow"></span>
-            </a>
-          </li>
-        </ui>
-      </div>
+          <Navbar.Toggle aria-controls="offcanvasNavbar" />
+
+          <Navbar.Offcanvas
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <Nav.Link
+                onClick={handleLogout}
+                className="dashboard__menu__item--btn"
+              >
+                LogOut
+              </Nav.Link>
+            </Offcanvas.Header>
+            <Form className="d-flex px-3">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="text-white bg-secondary">Search</Button>
+            </Form>
+            <Offcanvas.Body>
+              <Nav className="justify-content-end flex-grow-1 pe-3">
+                <ui className="dashboard__menu">
+                  <li id="products" className="dashboard__menu__item">
+                    <a href="/articulos" className="dashboard__menu__item--btn">
+                      Articulos
+                      <span className="right-arrow"></span>
+                    </a>
+                  </li>
+                  <li id="articles" className="dashboard__menu__item">
+                    <a
+                      href="/categorias"
+                      className="dashboard__menu__item--btn"
+                    >
+                      Categorias
+                      <span className="right-arrow"></span>
+                    </a>
+                  </li>
+                  <li id="pages" className="dashboard__menu__item">
+                    <a href="/ordenes" className="dashboard__menu__item--btn">
+                      Ordenes
+                      <span className="right-arrow"></span>
+                    </a>
+                    <div className="dashboard__submenu">
+                      <a className="dashboard__submenu--btn" href="#pages">
+                        Todas las ordenes
+                      </a>
+                    </div>
+                  </li>
+                  <li id="users" className="dashboard__menu__item">
+                    <a href="/usuarios" className="dashboard__menu__item--btn">
+                      Usuarios
+                      <span className="right-arrow"></span>
+                    </a>
+                  </li>
+                  <li id="users" className="dashboard__menu__item">
+                    <a
+                      href="/estadisticas"
+                      className="dashboard__menu__item--btn"
+                    >
+                      Estadisticas
+                      <span className="right-arrow"></span>
+                    </a>
+                  </li>
+                </ui>
+
+                <NavDropdown
+                  className="dashboard__menu__item--btn"
+                  title="Dropdown"
+                  id=""
+                >
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">
+                    Another action
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
     </>
   );
 }

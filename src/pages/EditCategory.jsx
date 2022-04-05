@@ -57,7 +57,7 @@ function EditCategory() {
         <NavBarAdmin />
         <Container>
           <Row>
-            <Col className="marginCol">
+            <Col className="text-white">
               {" "}
               <h1>Editar Categoria: {category.name}</h1>
               <form onSubmit={handleSubmit} className="mb-5">

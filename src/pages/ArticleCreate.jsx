@@ -54,7 +54,7 @@ function ArticleCreate() {
       <NavBarAdmin />
       <Container>
         <Row>
-          <Col className="marginCol">
+          <Col className="text-white">
             {" "}
             <h1>Crear nuevo articulo</h1>
             <form onSubmit={handleSubmit} className="mb-5">

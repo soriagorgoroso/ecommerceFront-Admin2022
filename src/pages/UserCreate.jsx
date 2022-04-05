@@ -51,7 +51,7 @@ function UserCreate() {
       <NavBarAdmin />
       <Container>
         <Row>
-          <Col className="marginCol">
+          <Col className="text-white">
             {" "}
             <h1>Crear nuevo usuario</h1>
             <form onSubmit={handleSubmit} className="mb-5">

@@ -45,7 +45,7 @@ function CategoryCreate() {
       <NavBarAdmin />
       <Container>
         <Row>
-          <Col className="marginCol">
+          <Col className="text-white">
             {" "}
             <h1>Crear nueva categoria</h1>
             <form onSubmit={handleSubmit} className="mb-5">

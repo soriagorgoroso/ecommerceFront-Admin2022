@@ -62,7 +62,7 @@ function EditOrder() {
         <NavBarAdmin />
         <Container>
           <Row>
-            <Col className="marginCol">
+            <Col className="text-white">
               {" "}
               <h1>Editar Orden número: {order.id}</h1>
               <form onSubmit={handleSubmit} className="mb-5">

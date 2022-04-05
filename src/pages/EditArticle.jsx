@@ -58,7 +58,7 @@ function EditArticle() {
         <NavBarAdmin />
         <Container>
           <Row>
-            <Col className="marginCol">
+            <Col className="text-white">
               {" "}
               <h1>Editar Articulo: {article.name}</h1>
               <form onSubmit={handleSubmit} className="mb-5">
