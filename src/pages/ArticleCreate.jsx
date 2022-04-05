@@ -69,6 +69,7 @@ function ArticleCreate() {
                 className="w-75 form-control"
                 id="name"
                 type="text"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="description">
@@ -85,6 +86,7 @@ function ArticleCreate() {
                 className="w-75 form-control"
                 id="description"
                 type="text"
+                required
               />
               {/* <textarea
             onChange={(ev) =>
@@ -114,6 +116,7 @@ function ArticleCreate() {
                 className="w-75 form-control"
                 id="image"
                 type="text"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="price">
@@ -127,6 +130,7 @@ function ArticleCreate() {
                 className="w-75 form-control"
                 id="price"
                 type="number"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="sicezz">
@@ -140,6 +144,7 @@ function ArticleCreate() {
                 className="w-75 form-control"
                 id="sizecc"
                 type="number"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="stock">
@@ -153,6 +158,7 @@ function ArticleCreate() {
                 className="w-75 form-control"
                 id="stock"
                 type="number"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="category">
@@ -166,6 +172,7 @@ function ArticleCreate() {
                 className="w-75 form-control"
                 id="category"
                 type="text"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="ibus">
@@ -179,6 +186,7 @@ function ArticleCreate() {
                 className="w-75 form-control"
                 id="ibus"
                 type="text"
+                required
               />
               {warning && <p className="text-danger">{warning}</p>}
               <button className="btn btn-success mt-3" type="submit">
