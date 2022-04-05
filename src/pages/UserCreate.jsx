@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Container, Col, Row, Table } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 
 function UserCreate() {
@@ -39,7 +39,7 @@ function UserCreate() {
         },
       }
     );
-    if (response.statusText === "OK") {
+    if (response.status === 200) {
       navigate("/usuarios");
     } else {
       setWarning(response.data.msg);
@@ -66,6 +66,7 @@ function UserCreate() {
                 className="w-75 form-control"
                 id="firstname"
                 type="text"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="lastname">
@@ -79,6 +80,7 @@ function UserCreate() {
                 className="w-75 form-control"
                 id="lastname"
                 type="text"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="address">
@@ -92,6 +94,7 @@ function UserCreate() {
                 className="w-75 form-control"
                 id="address"
                 type="text"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="telephone">
@@ -105,6 +108,7 @@ function UserCreate() {
                 className="w-75 form-control"
                 id="telephone"
                 type="tel"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="username">
@@ -118,6 +122,7 @@ function UserCreate() {
                 className="w-75 form-control"
                 id="username"
                 type="text"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="email">
@@ -131,6 +136,7 @@ function UserCreate() {
                 className="w-75 form-control"
                 id="email"
                 type="email"
+                required
               />
 
               <label className="mt-3 w-75 form-label" htmlFor="password">
@@ -144,6 +150,7 @@ function UserCreate() {
                 className="w-75 form-control"
                 id="password"
                 type="password"
+                required
               />
               {warning && <p className="text-danger">{warning}</p>}
               <button className="btn btn-success mt-3" type="submit">
