@@ -1,9 +1,9 @@
 <>
   //////////////////////////////////////////////test radio para opcion de admin
   o no en el editUser
-  <div class="form-check mt-3">
+  <div className="form-check mt-3">
     <input
-      class="form-check-input"
+      className="form-check-input"
       type="radio"
       name="flexRadioDefault"
       id="admin"
@@ -13,9 +13,9 @@
       Administrador
     </label>
   </div>
-  <div class="form-check">
+  <div className="form-check">
     <input
-      class="form-check-input"
+      className="form-check-input"
       type="radio"
       name="flexRadioDefault"
       id="client"
