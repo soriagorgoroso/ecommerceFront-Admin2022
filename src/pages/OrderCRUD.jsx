@@ -50,23 +50,24 @@ function OrderCRUD() {
                     >
                       <thead className="text-primary">
                         <tr>
-                          <th scope="col">id</th>
                           <th scope="col">Fecha de compra</th>
+                          <th scope="col">Estado</th>
+                          <th scope="col">id</th>
                         </tr>
                       </thead>
                       <tbody>
                         {orders.map((order) => (
                           <tr key={order._id}>
-                            <th scope="row">{order._id}</th>
-                            <td>{order.createdAt}</td>
-
+                            <td>{order.createdAt.slice(0, 10)}</td>
+                            <td>{order.status}</td>
+                            <td scope="row">{order._id}</td>
                             <td>
                               <a
-                                className="btn btn-success"
+                                className="btn btn-outline-success"
                                 rel="stylesheet"
                                 href={`/ordenes/${order.id}`}
                               >
-                                <i class="fa-solid fa-pen"></i>
+                                <i className="fa-solid fa-pen"></i>
                               </a>
                             </td>
                           </tr>

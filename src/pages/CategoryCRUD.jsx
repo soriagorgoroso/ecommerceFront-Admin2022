@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBarAdmin from "../components/NavBarAdmin";
 import axios from "axios";
 import { Table, Container, Col, Row, Card } from "react-bootstrap";
@@ -46,32 +46,22 @@ function CategoryCRUD() {
                     >
                       <thead className="text-primary">
                         <tr>
-                          <th scope="col">id</th>
                           <th scope="col">Nombre</th>
+                          <th scope="col">id</th>
                         </tr>
                       </thead>
                       <tbody>
                         {categories.map((category) => (
                           <tr scope="row" key={category._id}>
-                            <td>{category._id}</td>
                             <td>{category.name}</td>
-
+                            <td>{category._id}</td>
                             <td>
                               <a
-                                className="btn btn-success"
+                                className="btn btn-outline-success"
                                 rel="stylesheet"
                                 href={`/categorias/${category.name}`}
                               >
-                                <i class="fa-solid fa-pen"></i>
-                              </a>
-                            </td>
-                            <td>
-                              <a
-                                className="btn btn-danger"
-                                rel="stylesheet"
-                                href=""
-                              >
-                                <i class="fa-solid fa-trash-can"></i>{" "}
+                                <i className="fa-solid fa-pen"></i>
                               </a>
                             </td>
                           </tr>

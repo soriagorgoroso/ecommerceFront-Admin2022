@@ -73,20 +73,18 @@ function UserCRUD() {
                             <td>{user._id}</td>
                             <td>
                               <a
-                                className="btn btn-success"
+                                className="btn btn-outline-success"
                                 rel="stylesheet"
                                 href={`/usuarios/${user.username}`}
                               >
-                                <i class="fa-solid fa-pen"></i>
+                                <i className="fa-solid fa-pen"></i>
                               </a>
-                            </td>
-                            <td>
                               <a
-                                className="btn btn-danger"
+                                className="btn btn-outline-danger"
                                 rel="stylesheet"
                                 href=""
                               >
-                                <i class="fa-solid fa-trash-can"></i>{" "}
+                                <i className="fa-solid fa-trash-can"></i>{" "}
                               </a>
                             </td>
                           </tr>
