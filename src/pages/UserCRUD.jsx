@@ -34,7 +34,15 @@ function UserCRUD() {
               <Col md="12">
                 <Card>
                   <Card.Header>
-                    <Card.Title tag="h4">Simple Table</Card.Title>
+                    <Card.Title
+                      tag="h4"
+                      className="d-flex justify-content-between"
+                    >
+                      Usuarios{" "}
+                      <a href="/usuarios/nuevo" className="btn btn-primary">
+                        Agregar usuario
+                      </a>
+                    </Card.Title>
                   </Card.Header>
                   <Card.Body>
                     <Table

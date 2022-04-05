@@ -25,7 +25,15 @@ function ArticleCRUD() {
               <Col md="12">
                 <Card>
                   <Card.Header>
-                    <Card.Title tag="h4">Articulos</Card.Title>
+                    <Card.Title
+                      tag="h4"
+                      className="d-flex justify-content-between"
+                    >
+                      Articulos{" "}
+                      <a href="articulos/nuevo" className="btn btn-primary">
+                        Agregar articulo
+                      </a>
+                    </Card.Title>{" "}
                   </Card.Header>
                   <Card.Body>
                     <Table

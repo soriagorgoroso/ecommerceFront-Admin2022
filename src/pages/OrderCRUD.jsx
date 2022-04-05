@@ -33,7 +33,12 @@ function OrderCRUD() {
               <Col md="12">
                 <Card>
                   <Card.Header>
-                    <Card.Title tag="h4">Ordenes</Card.Title>
+                    <Card.Title
+                      tag="h4"
+                      className="d-flex justify-content-between"
+                    >
+                      Ordenes
+                    </Card.Title>
                   </Card.Header>
                   <Card.Body>
                     <Table

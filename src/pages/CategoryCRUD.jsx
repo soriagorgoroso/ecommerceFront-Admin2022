@@ -26,10 +26,15 @@ function CategoryCRUD() {
               <Col md="12">
                 <Card>
                   <Card.Header>
-                    <Card.Title tag="h4">Categorias</Card.Title>
-                    <a href="categorias/nuevo" className="btn btn-primary">
-                      Agregar categoria
-                    </a>
+                    <Card.Title
+                      className="d-flex justify-content-between"
+                      tag="h4"
+                    >
+                      Categorias{" "}
+                      <a href="categorias/nuevo" className="btn btn-primary">
+                        Agregar categoria
+                      </a>
+                    </Card.Title>
                   </Card.Header>
                   <Card.Body>
                     <Table
