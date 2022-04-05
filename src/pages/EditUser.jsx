@@ -49,7 +49,7 @@ function EditUser() {
         },
       }
     );
-    if (response.statusText === "OK") {
+    if (response.status === 200) {
       navigate("/usuarios");
     } else {
       setWarning(response.data.msg);

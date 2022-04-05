@@ -49,7 +49,7 @@ function EditOrder() {
         },
       }
     );
-    if (response.statusText === "OK") {
+    if (response.status === 200) {
       navigate("/ordenes");
     } else {
       setWarning(response.data.msg);

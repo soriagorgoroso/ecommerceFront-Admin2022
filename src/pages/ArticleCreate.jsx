@@ -42,7 +42,7 @@ function ArticleCreate() {
       }
     );
     console.log(response);
-    if (response.statusText === "OK") {
+    if (response.status === 200) {
       navigate("/articulos");
     } else {
       setWarning(response.data.msg);

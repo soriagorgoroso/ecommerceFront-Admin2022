@@ -45,7 +45,7 @@ function EditArticle() {
         },
       }
     );
-    if (response.statusText === "OK") {
+    if (response.status === 200) {
       navigate("/articulos");
     } else {
       setWarning(response.data.msg);

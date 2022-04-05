@@ -44,7 +44,7 @@ function EditCategory() {
         },
       }
     );
-    if (response.statusText === "OK") {
+    if (response.status === 200) {
       navigate("/categorias");
     } else {
       setWarning(response.data.msg);
