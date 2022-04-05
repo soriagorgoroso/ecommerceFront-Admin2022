@@ -70,6 +70,7 @@ function EditUser() {
                   Nombre
                 </label>
                 <input
+                  required
                   defaultValue={user.firstname}
                   className="w-75 form-control"
                   id="firstname"
@@ -86,6 +87,7 @@ function EditUser() {
                   Apellido
                 </label>
                 <input
+                  required
                   defaultValue={user.lastname}
                   className="w-75 form-control"
                   id="lastname"
@@ -99,6 +101,7 @@ function EditUser() {
                   Domicilio
                 </label>
                 <input
+                  required
                   defaultValue={user.address}
                   className="w-75 form-control"
                   id="address"
@@ -112,6 +115,7 @@ function EditUser() {
                   Teléfono
                 </label>
                 <input
+                  required
                   defaultValue={user.telephone}
                   className="w-75 form-control"
                   id="telephone"
@@ -125,9 +129,10 @@ function EditUser() {
                   }}
                 />
                 <label className="mt-3 w-75 form-label" htmlFor="isAdmin">
-                  Es administrador
+                  Es administrador (true o false)
                 </label>
                 <input
+                  required
                   defaultValue={user.isAdmin}
                   className="w-75 form-control"
                   id="isAdmin"
@@ -137,6 +142,38 @@ function EditUser() {
                     setEditedUser({ ...editedUser, isAdmin: ev.target.value });
                   }}
                 />
+                {/*
+                <label className="mt-3 w-75 form-label" htmlFor="isAdmin">
+                  Tipo de usuario
+                </label>
+                <select
+                  id="isAdmin"
+                  className="form-select w-25"
+                  aria-label="Default select example"
+                  onChange={(ev) => {
+                    console.log(ev.target.value);
+                    ev.target.value === "Administrador"
+                      ? setUser({ ...user, isAdmin: true })
+                      : setUser({ ...user, isAdmin: false });
+                  }}
+                >
+                  {user.isAdmin ? (
+                    <>
+                      <option selected value={true}>
+                        Administrador
+                      </option>
+                      <option>Cliente</option>
+                    </>
+                  ) : (
+                    <>
+                      <option>Administrador</option>
+                      <option selected value={false}>
+                        Cliente
+                      </option>
+                    </>
+                  )}
+                </select>
+                 */}
                 {warning && <p className="text-danger">{warning}</p>}
                 <button className="btn btn-success mt-3" type="submit">
                   Guardar cambios
