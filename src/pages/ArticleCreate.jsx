@@ -41,7 +41,6 @@ function ArticleCreate() {
         },
       }
     );
-    console.log(response);
     if (response.status === 200) {
       navigate("/articulos");
     } else {
@@ -49,46 +48,59 @@ function ArticleCreate() {
     }
   };
 
-  return (
-    <>
-      <NavBarAdmin />
-      <Container>
-        <Row>
-          <Col className="text-white">
-            {" "}
-            <h1>Crear nuevo articulo</h1>
-            <form onSubmit={handleSubmit} className="mb-5">
-              <label className="mt-3 w-75 form-label" htmlFor="name">
-                Nombre
-              </label>
-              <input
-                onChange={(ev) => {
-                  setFormFields({ ...formFields, name: ev.target.value });
-                }}
-                value={formFields.name}
-                className="w-75 form-control"
-                id="name"
-                type="text"
-                required
-              />
+  const [categories, setcategories] = React.useState(null);
 
-              <label className="mt-3 w-75 form-label" htmlFor="description">
-                Descripción
-              </label>
-              <input
-                onChange={(ev) => {
-                  setFormFields({
-                    ...formFields,
-                    description: ev.target.value,
-                  });
-                }}
-                value={formFields.description}
-                className="w-75 form-control"
-                id="description"
-                type="text"
-                required
-              />
-              {/* <textarea
+  React.useEffect(() => {
+    const getCategories = async () => {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/categories`
+      );
+      setcategories(response.data);
+    };
+    getCategories();
+  }, []);
+
+  return (
+    categories && (
+      <>
+        <NavBarAdmin />
+        <Container>
+          <Row>
+            <Col className="text-white">
+              {" "}
+              <h1>Crear nuevo articulo</h1>
+              <form onSubmit={handleSubmit} className="mb-5">
+                <label className="mt-3 w-75 form-label" htmlFor="name">
+                  Nombre
+                </label>
+                <input
+                  onChange={(ev) => {
+                    setFormFields({ ...formFields, name: ev.target.value });
+                  }}
+                  value={formFields.name}
+                  className="w-75 form-control"
+                  id="name"
+                  type="text"
+                  required
+                />
+
+                <label className="mt-3 w-75 form-label" htmlFor="description">
+                  Descripción
+                </label>
+                <input
+                  onChange={(ev) => {
+                    setFormFields({
+                      ...formFields,
+                      description: ev.target.value,
+                    });
+                  }}
+                  value={formFields.description}
+                  className="w-75 form-control"
+                  id="description"
+                  type="text"
+                  required
+                />
+                {/* <textarea
             onChange={(ev) =>
               setFormFields({ ...formFields, description: ev.target.value })
             }
@@ -98,73 +110,73 @@ function ArticleCreate() {
             rows="4"
           /> */}
 
-              {/* <label className="mt-3 w-75 form-label" htmlFor="image">
+                {/* <label className="mt-3 w-75 form-label" htmlFor="image">
             Imagen
           </label>
           <input className="w-75 form-control" id="image" type="file" /> */}
-              <label className="mt-3 w-75 form-label" htmlFor="image">
-                Imagen "placeholder.jpg"
-              </label>
-              <input
-                placeholder="placeholder.jpg"
-                onChange={(ev) => {
-                  setFormFields({ ...formFields, image: ev.target.value });
-                }}
-                value={formFields.image}
-                //defaultValue="placeholder.jpg"
-                // readOnly
-                className="w-75 form-control"
-                id="image"
-                type="text"
-                required
-              />
+                <label className="mt-3 w-75 form-label" htmlFor="image">
+                  Imagen "PLACEHOLDER.JPG"
+                </label>
+                <input
+                  placeholder="PLACEHOLDER.JPG"
+                  onChange={(ev) => {
+                    setFormFields({ ...formFields, image: ev.target.value });
+                  }}
+                  value={formFields.image}
+                  //defaultValue="PLACEHOLDER.JPG"
+                  // readOnly
+                  className="w-75 form-control"
+                  id="image"
+                  type="text"
+                  required
+                />
 
-              <label className="mt-3 w-75 form-label" htmlFor="price">
-                Precio
-              </label>
-              <input
-                onChange={(ev) => {
-                  setFormFields({ ...formFields, price: ev.target.value });
-                }}
-                value={formFields.price}
-                className="w-75 form-control"
-                id="price"
-                type="number"
-                required
-              />
+                <label className="mt-3 w-75 form-label" htmlFor="price">
+                  Precio
+                </label>
+                <input
+                  onChange={(ev) => {
+                    setFormFields({ ...formFields, price: ev.target.value });
+                  }}
+                  value={formFields.price}
+                  className="w-75 form-control"
+                  id="price"
+                  type="number"
+                  required
+                />
 
-              <label className="mt-3 w-75 form-label" htmlFor="sicezz">
-                Volumen en cc
-              </label>
-              <input
-                onChange={(ev) => {
-                  setFormFields({ ...formFields, sizecc: ev.target.value });
-                }}
-                value={formFields.sizecc}
-                className="w-75 form-control"
-                id="sizecc"
-                type="number"
-                required
-              />
+                <label className="mt-3 w-75 form-label" htmlFor="sicezz">
+                  Volumen en cc
+                </label>
+                <input
+                  onChange={(ev) => {
+                    setFormFields({ ...formFields, sizecc: ev.target.value });
+                  }}
+                  value={formFields.sizecc}
+                  className="w-75 form-control"
+                  id="sizecc"
+                  type="number"
+                  required
+                />
 
-              <label className="mt-3 w-75 form-label" htmlFor="stock">
-                Stock
-              </label>
-              <input
-                onChange={(ev) => {
-                  setFormFields({ ...formFields, stock: ev.target.value });
-                }}
-                value={formFields.stock}
-                className="w-75 form-control"
-                id="stock"
-                type="number"
-                required
-              />
+                <label className="mt-3 w-75 form-label" htmlFor="stock">
+                  Stock
+                </label>
+                <input
+                  onChange={(ev) => {
+                    setFormFields({ ...formFields, stock: ev.target.value });
+                  }}
+                  value={formFields.stock}
+                  className="w-75 form-control"
+                  id="stock"
+                  type="number"
+                  required
+                />
 
-              <label className="mt-3 w-75 form-label" htmlFor="category">
-                Categoría
-              </label>
-              <input
+                <label className="mt-3 w-75 form-label" htmlFor="category">
+                  Categoría
+                </label>
+                {/* <input
                 onChange={(ev) => {
                   setFormFields({ ...formFields, category: ev.target.value });
                 }}
@@ -173,33 +185,52 @@ function ArticleCreate() {
                 id="category"
                 type="text"
                 required
-              />
+              /> */}
+                <select
+                  className="w-25 ms-3 fs-4 form_color"
+                  aria-label="filter"
+                  onChange={(ev) => {
+                    {
+                      setFormFields({
+                        ...formFields,
+                        category: ev.target.value,
+                      });
+                    }
+                  }}
+                >
+                  {categories.map((category) => (
+                    <option value={category.name} key={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
 
-              <label className="mt-3 w-75 form-label" htmlFor="ibus">
-                Ibus
-              </label>
-              <input
-                onChange={(ev) => {
-                  setFormFields({ ...formFields, ibus: ev.target.value });
-                }}
-                value={formFields.ibus}
-                className="w-75 form-control"
-                id="ibus"
-                type="text"
-                required
-              />
-              {warning && <p className="text-danger">{warning}</p>}
-              <button className="btn btn-success mt-3" type="submit">
-                Guardar cambios
-              </button>
-            </form>
-            <a className="mt-3 btn btn-danger" href="/articulos">
-              Ir atrás
-            </a>
-          </Col>
-        </Row>
-      </Container>
-    </>
+                <label className="mt-3 w-75 form-label" htmlFor="ibus">
+                  Ibus
+                </label>
+                <input
+                  onChange={(ev) => {
+                    setFormFields({ ...formFields, ibus: ev.target.value });
+                  }}
+                  value={formFields.ibus}
+                  className="w-75 form-control"
+                  id="ibus"
+                  type="text"
+                  required
+                />
+                {warning && <p className="text-danger">{warning}</p>}
+                <button className="btn btn-success mt-3" type="submit">
+                  Guardar cambios
+                </button>
+              </form>
+              <a className="mt-3 btn btn-danger" href="/articulos">
+                Ir atrás
+              </a>
+            </Col>
+          </Row>
+        </Container>
+      </>
+    )
   );
 }
 
