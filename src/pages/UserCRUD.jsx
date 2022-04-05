@@ -37,14 +37,20 @@ function UserCRUD() {
                     <Card.Title tag="h4">Simple Table</Card.Title>
                   </Card.Header>
                   <Card.Body>
-                    <Table className="tablesorter" responsive>
+                    <Table
+                      striped
+                      bordered
+                      hover
+                      className="tablesorter"
+                      responsive
+                    >
                       <thead className="text-primary">
                         <tr>
-                          <th>Nombre</th>
-                          <th>Apellido</th>
-                          <th>Usuario</th>
-                          <th>Categoria</th>
-                          <th>id</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Apellido</th>
+                          <th scope="col">Usuario</th>
+                          <th scope="col">Categoria</th>
+                          <th scope="col">id</th>
                         </tr>
                       </thead>
                       <tbody>

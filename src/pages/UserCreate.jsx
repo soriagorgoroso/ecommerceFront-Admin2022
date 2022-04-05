@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Table } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 
 function UserCreate() {

@@ -36,17 +36,23 @@ function OrderCRUD() {
                     <Card.Title tag="h4">Ordenes</Card.Title>
                   </Card.Header>
                   <Card.Body>
-                    <Table className="tablesorter" responsive>
+                    <Table
+                      striped
+                      bordered
+                      hover
+                      className="tablesorter"
+                      responsive
+                    >
                       <thead className="text-primary">
                         <tr>
-                          <th>id</th>
-                          <th>Fecha de compra</th>
+                          <th scope="col">id</th>
+                          <th scope="col">Fecha de compra</th>
                         </tr>
                       </thead>
                       <tbody>
                         {orders.map((order) => (
                           <tr key={order._id}>
-                            <td>{order._id}</td>
+                            <th scope="row">{order._id}</th>
                             <td>{order.createdAt}</td>
 
                             <td>

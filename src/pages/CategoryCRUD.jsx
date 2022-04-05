@@ -32,16 +32,22 @@ function CategoryCRUD() {
                     </a>
                   </Card.Header>
                   <Card.Body>
-                    <Table className="tablesorter" responsive>
+                    <Table
+                      striped
+                      bordered
+                      hover
+                      className="tablesorter"
+                      responsive
+                    >
                       <thead className="text-primary">
                         <tr>
-                          <th>id</th>
-                          <th>Nombre</th>
+                          <th scope="col">id</th>
+                          <th scope="col">Nombre</th>
                         </tr>
                       </thead>
                       <tbody>
                         {categories.map((category) => (
-                          <tr key={category._id}>
+                          <tr scope="row" key={category._id}>
                             <td>{category._id}</td>
                             <td>{category.name}</td>
 

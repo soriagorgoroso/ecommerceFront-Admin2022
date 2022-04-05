@@ -28,20 +28,26 @@ function ArticleCRUD() {
                     <Card.Title tag="h4">Articulos</Card.Title>
                   </Card.Header>
                   <Card.Body>
-                    <Table className="tablesorter" responsive>
+                    <Table
+                      striped
+                      bordered
+                      hover
+                      className="tablesorter"
+                      responsive
+                    >
                       <thead className="text-primary">
                         <tr>
-                          <th>Id</th>
-                          <th>Nombre</th>
-                          <th>Categoria</th>
-                          <th>Tamaño en CC</th>
-                          <th>Stock</th>
+                          <th scope="col">Id</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Categoria</th>
+                          <th scope="col"> Tamaño en CC</th>
+                          <th scope="col">Stock</th>
                         </tr>
                       </thead>
                       <tbody>
                         {articles.map((article) => (
                           <tr key={article.id}>
-                            <td>{article.id}</td>
+                            <th scope="row">{article.id}</th>
                             <td>{article.name}</td>
                             <td>{article.category}</td>
                             <td>{article.sizecc}</td>

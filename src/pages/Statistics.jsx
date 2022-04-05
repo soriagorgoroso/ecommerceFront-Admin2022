@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Card } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 
 function Statistics() {
@@ -9,13 +9,19 @@ function Statistics() {
       <Container>
         <Row>
           <Col className="marginCol">
-            {" "}
-            <h1>Estadisticas de ventas</h1>
-            <img
-              className="img-fluid"
-              src="/estadisticas/graphic-1606688.png"
-              alt="estadisticas"
-            />
+            <Card>
+              <Card.Header>
+                {" "}
+                <h1>Estadisticas de ventas</h1>
+              </Card.Header>
+              <Card.Body>
+                <img
+                  className="img-fluid"
+                  src="/estadisticas/graphic-1606688.png"
+                  alt="estadisticas"
+                />
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
       </Container>
