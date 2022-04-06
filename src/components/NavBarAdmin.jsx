@@ -45,7 +45,7 @@ function NavBarAdmin() {
     <>
       <Navbar bg="dark" className="mb-5" ticky="top" expand={false}>
         <Container fluid>
-          <Navbar.Brand className="text-white" href="/">
+          <Navbar.Brand className="text-white" href="/admin">
             Panel de Administrador
           </Navbar.Brand>
 
@@ -75,7 +75,7 @@ function NavBarAdmin() {
             </Form>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <ui className="dashboard__menu">
+                <ul className="dashboard__menu">
                   <li id="products" className="dashboard__menu__item">
                     <a href="/articulos" className="dashboard__menu__item--btn">
                       Articulos
@@ -117,7 +117,7 @@ function NavBarAdmin() {
                       <span className="right-arrow"></span>
                     </a>
                   </li>
-                </ui>
+                </ul>
 
                 <NavDropdown
                   className="dashboard__menu__item--btn"

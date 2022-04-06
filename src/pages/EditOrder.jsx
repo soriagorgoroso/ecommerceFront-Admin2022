@@ -67,6 +67,12 @@ function EditOrder() {
               <h1>Editar Orden número: {order.id}</h1>
               <form onSubmit={handleSubmit} className="mb-5">
                 <label className="mt-3 w-75 form-label" htmlFor="status">
+                  Fecha
+                </label>
+                <p className="w-75 form-control">
+                  {order.createdAt.slice(0, 10)}
+                </p>
+                <label className="mt-3 w-75 form-label" htmlFor="status">
                   Estado
                 </label>
                 <input
