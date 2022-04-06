@@ -11,7 +11,7 @@ function Admin() {
           <Col className="text-white">
             {" "}
             <h1>Pagina del administrador</h1>
-            <p>Bienvenido a la pagina del administrador de Hack Beer</p>
+            <p>Bienvenido a la pagina del administrador de Hack Bier</p>
           </Col>
         </Row>
       </Container>
