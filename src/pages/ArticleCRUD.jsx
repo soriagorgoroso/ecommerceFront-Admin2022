@@ -2,6 +2,8 @@ import React from "react";
 import NavBarAdmin from "../components/NavBarAdmin";
 import axios from "axios";
 import { Table, Container, Col, Row, Card } from "react-bootstrap";
+import ButtonDeleteArticle from "../components/ButtonDeleteArticle";
+
 function ArticleCRUD() {
   const [articles, setArticles] = React.useState(null);
 
@@ -68,13 +70,7 @@ function ArticleCRUD() {
                               >
                                 <i className="fa-solid fa-pen"></i>
                               </a>
-                              <a
-                                className="btn btn-outline-danger"
-                                rel="stylesheet"
-                                href="/"
-                              >
-                                <i className="fa-solid fa-trash-can"></i>{" "}
-                              </a>
+                              <ButtonDeleteArticle id={article.id} />
                             </td>
                           </tr>
                         ))}
