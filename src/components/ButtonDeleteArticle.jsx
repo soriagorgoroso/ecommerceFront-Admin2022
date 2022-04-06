@@ -3,13 +3,14 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-function ButtonDeleteArticle({ id }) {
+function ButtonDeleteArticle({ id, setArticles }) {
   const navigate = useNavigate();
   const userLogged = useSelector((state) => state.user);
   const [warning, setWarning] = React.useState(null);
 
   const handleClick = async (ev) => {
     ev.preventDefault();
+    setArticles((prev) => prev.filter((article) => article.id !== id));
     const response = await axios(
       {
         method: "delete",
@@ -24,9 +25,7 @@ function ButtonDeleteArticle({ id }) {
         },
       }
     );
-    if (response.status === 200) {
-      navigate("/articulos");
-    } else {
+    if (response.status !== 200) {
       setWarning(response.data.msg);
     }
   };

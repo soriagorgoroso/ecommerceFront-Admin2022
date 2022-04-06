@@ -70,7 +70,10 @@ function ArticleCRUD() {
                               >
                                 <i className="fa-solid fa-pen"></i>
                               </a>
-                              <ButtonDeleteArticle id={article.id} />
+                              <ButtonDeleteArticle
+                                setArticles={setArticles}
+                                id={article.id}
+                              />
                             </td>
                           </tr>
                         ))}
