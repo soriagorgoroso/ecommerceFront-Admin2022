@@ -13,7 +13,7 @@ function Statistics() {
           <Col className="marginCol">
             <Card>
               <Card.Header>
-                <h1>Estadisticas de ventas</h1>
+                <h1>Estadisticas</h1>
               </Card.Header>
               <Card.Body>
                 <Row className="mt-3">

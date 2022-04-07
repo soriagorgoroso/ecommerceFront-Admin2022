@@ -10,7 +10,7 @@ function BarChart() {
       </p>
       <div>
         <Line
-          height={300}
+          height={200}
           width={300}
           data={{
             labels: [
@@ -46,7 +46,7 @@ function BarChart() {
             ],
           }}
           options={{
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             scales: {
               yAxes: {
                 ticks: {
