@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -61,38 +61,50 @@ function EditOrder() {
       <>
         <NavBarAdmin />
         <Container>
-          <Row>
-            <Col className="text-white">
+          <Row xs={1} md={1} lg={7} className="d-flex justify-content-center">
+            <Col className="w-75 ">
               {" "}
-              <h1>Editar Orden número: {order.id}</h1>
-              <form onSubmit={handleSubmit} className="mb-5">
-                <label className="mt-3 w-75 form-label" htmlFor="status">
-                  Fecha
-                </label>
-                <p className="w-75 form-control">
-                  {order.createdAt.slice(0, 10)}
-                </p>
-                <label className="mt-3 w-75 form-label" htmlFor="status">
-                  Estado
-                </label>
-                <input
-                  defaultValue={order.status}
-                  className="w-75 form-control"
-                  id="status"
-                  type="text"
-                  onChange={(ev) => {
-                    setOrder({ ...order, status: ev.target.value });
-                    setEditedOrder({ ...editedOrder, status: ev.target.value });
-                  }}
-                />
-                {warning && <p className="text-danger">{warning}</p>}
-                <button className="btn btn-success mt-3" type="submit">
-                  Guardar cambios
-                </button>
-              </form>
-              <a className="my-3 btn btn-danger" href="/ordenes">
-                Ir atrás
-              </a>
+              <Card className="">
+                <Card.Header>
+                  <Card.Title>
+                    <h1>Editar Orden número: {order.id}</h1>
+                  </Card.Title>
+                </Card.Header>
+                <Card.Body className="d-flex justify-content-center">
+                  {" "}
+                  <form onSubmit={handleSubmit} className="mb-5 col-7">
+                    <label className="mt-3  form-label" htmlFor="status">
+                      Fecha
+                    </label>
+                    <p className=" form-control">
+                      {order.createdAt.slice(0, 10)}
+                    </p>
+                    <label className="mt-3  form-label" htmlFor="status">
+                      Estado
+                    </label>
+                    <input
+                      defaultValue={order.status}
+                      className=" form-control"
+                      id="status"
+                      type="text"
+                      onChange={(ev) => {
+                        setOrder({ ...order, status: ev.target.value });
+                        setEditedOrder({
+                          ...editedOrder,
+                          status: ev.target.value,
+                        });
+                      }}
+                    />
+                    {warning && <p className="text-danger">{warning}</p>}
+                    <button className="btn btn-success mt-3" type="submit">
+                      Guardar cambios
+                    </button>
+                  </form>
+                </Card.Body>
+                <a className="mt-3 btn btn-danger" href="/ordenes">
+                  Ir atrás
+                </a>
+              </Card>{" "}
             </Col>
           </Row>
         </Container>

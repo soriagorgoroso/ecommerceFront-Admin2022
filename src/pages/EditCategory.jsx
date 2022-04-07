@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Card } from "react-bootstrap";
 import NavBarAdmin from "../components/NavBarAdmin";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -56,35 +56,45 @@ function EditCategory() {
       <>
         <NavBarAdmin />
         <Container>
-          <Row>
-            <Col className="text-white">
+          <Row xs={1} md={1} lg={7} className="d-flex justify-content-center">
+            <Col className="w-75 ">
               {" "}
-              <h1>Editar Categoria: {category.name}</h1>
-              <form onSubmit={handleSubmit} className="mb-5">
-                <label className="mt-3 w-75 form-label" htmlFor="name">
-                  Nombre
-                </label>
-                <input
-                  value={category.name}
-                  className="w-25 form-control"
-                  id="name"
-                  type="text"
-                  onChange={(ev) => {
-                    setCategory({ ...category, name: ev.target.value });
-                    setEditedCategory({
-                      ...editedCategory,
-                      name: ev.target.value,
-                    });
-                  }}
-                />
-                {warning && <p className="text-danger">{warning}</p>}
-                <button className="btn btn-success mt-3" type="submit">
-                  Guardar cambios
-                </button>
-              </form>
-              <a className="my-3 btn btn-danger" href="/categorias">
-                Ir atrás
-              </a>
+              <Card className="">
+                <Card.Header>
+                  <Card.Title>
+                    <h1>Crear nuevo articulo</h1>
+                  </Card.Title>
+                </Card.Header>
+                <Card.Body className="d-flex justify-content-center">
+                  {" "}
+                  <h1>Editar Categoria: {category.name}</h1>
+                  <form onSubmit={handleSubmit} className="mb-5 col-7">
+                    <label className="mt-3 form-label" htmlFor="name">
+                      Nombre
+                    </label>
+                    <input
+                      value={category.name}
+                      className=" form-control"
+                      id="name"
+                      type="text"
+                      onChange={(ev) => {
+                        setCategory({ ...category, name: ev.target.value });
+                        setEditedCategory({
+                          ...editedCategory,
+                          name: ev.target.value,
+                        });
+                      }}
+                    />
+                    {warning && <p className="text-danger">{warning}</p>}
+                    <button className="btn btn-success mt-3" type="submit">
+                      Guardar cambios
+                    </button>
+                  </form>
+                </Card.Body>
+                <a className="mt-3 btn btn-danger" href="/categorias">
+                  Ir atrás
+                </a>
+              </Card>{" "}
             </Col>
           </Row>
         </Container>
