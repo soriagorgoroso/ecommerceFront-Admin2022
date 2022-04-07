@@ -208,6 +208,8 @@ function ArticleCreate() {
                     <select
                       className="w-25 ms-3 fs-4 form-control border "
                       aria-label="filter"
+                      id="category"
+                      type="text"
                       onChange={(ev) => {
                         {
                           setFormFields({

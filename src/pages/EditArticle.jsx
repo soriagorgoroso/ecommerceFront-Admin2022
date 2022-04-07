@@ -72,6 +72,7 @@ function EditArticle() {
                       Nombre
                     </label>
                     <input
+                      required
                       defaultValue={article.name}
                       className=" form-control"
                       id="name"
@@ -89,6 +90,7 @@ function EditArticle() {
                       Descripción
                     </label>
                     <input
+                      required
                       defaultValue={article.description}
                       className=" form-control"
                       id="description"
@@ -112,6 +114,7 @@ function EditArticle() {
                       Imagen
                     </label>
                     <input
+                      required
                       placeholder="placeholder.jpg"
                       defaultValue={article.image}
                       className=" form-control"
@@ -130,6 +133,7 @@ function EditArticle() {
                       Precio
                     </label>
                     <input
+                      required
                       defaultValue={article.price}
                       className=" form-control"
                       id="price"
@@ -147,6 +151,7 @@ function EditArticle() {
                       Volumen en cc
                     </label>
                     <input
+                      required
                       defaultValue={article.sizecc}
                       className=" form-control"
                       id="sicezz"
@@ -164,6 +169,7 @@ function EditArticle() {
                       Stock
                     </label>
                     <input
+                      required
                       defaultValue={article.stock}
                       className=" form-control"
                       id="stock"
@@ -181,6 +187,7 @@ function EditArticle() {
                       Categoría
                     </label>
                     <input
+                      required
                       defaultValue={article.category}
                       className=" form-control"
                       id="category"
@@ -198,6 +205,7 @@ function EditArticle() {
                       Mas vendidos?
                     </label>
                     <input
+                      required
                       defaultValue={article.topSeller}
                       className=" form-control"
                       id="topSeller"
@@ -215,6 +223,7 @@ function EditArticle() {
                       Ibus
                     </label>
                     <input
+                      required
                       defaultValue={article.ibus}
                       className=" form-control"
                       id="ibus"
