@@ -218,7 +218,11 @@ function ArticleCreate() {
                       }}
                     >
                       {categories.map((category) => (
-                        <option value={category.name} key={category.id}>
+                        <option
+                          className="form-control"
+                          value={category.name}
+                          key={category.id}
+                        >
                           {category.name}
                         </option>
                       ))}
