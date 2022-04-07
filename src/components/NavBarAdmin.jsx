@@ -54,25 +54,10 @@ function NavBarAdmin() {
           <Navbar.Offcanvas
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
-            placement="end"
+            placement="start"
           >
-            <Offcanvas.Header closeButton>
-              <Nav.Link
-                onClick={handleLogout}
-                className="dashboard__menu__item--btn"
-              >
-                LogOut
-              </Nav.Link>
-            </Offcanvas.Header>
-            <Form className="d-flex px-3">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="text-white bg-secondary">Search</Button>
-            </Form>
+            <Offcanvas.Header className="" closeButton></Offcanvas.Header>
+            <Form className="d-flex pt-5"></Form>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <ul className="dashboard__menu">
@@ -118,23 +103,14 @@ function NavBarAdmin() {
                     </a>
                   </li>
                 </ul>
-
-                <NavDropdown
-                  className="dashboard__menu__item--btn"
-                  title="Dropdown"
-                  id=""
-                >
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown>
               </Nav>
             </Offcanvas.Body>
+            <Nav.Link
+              onClick={handleLogout}
+              className="dashboard__menu__item--btn-exit text-center"
+            >
+              LogOut
+            </Nav.Link>
           </Navbar.Offcanvas>
         </Container>
       </Navbar>

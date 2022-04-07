@@ -42,7 +42,7 @@ function Login() {
 
         <form method="post" action="index.html" onSubmit={handleSubmit}>
           <div className="box">
-            <h1 className="title">Ingresa</h1>
+            <h1 className="title pt-2">Ingresa</h1>
 
             <input
               type="email"
@@ -51,7 +51,7 @@ function Login() {
               // onBlur="field_blur(this, 'email');"
               autoComplete="username"
               className="email"
-              placeholder="email"
+              placeholder="admin@hackbier.com"
               value={data}
               onChange={(e) => setData(e.target.value)}
             />
@@ -63,19 +63,17 @@ function Login() {
               // onBlur="field_blur(this, 'password');"
               autoComplete="current-password"
               className="email"
-              placeholder="password"
+              placeholder="admin"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <p className="pass">Olvidaste tu contraseña?</p>
-
-            <button type="submit" className="btn">
-              Sign In
-            </button>
-
-            <button type="submit" className="btn">
-              Sign Up
-            </button>
+            <p className="pass pt-1">Olvidaste tu contraseña?</p>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <button type="submit " className="btn">
+                INGRESAR
+              </button>
+            </div>
           </div>
         </form>
       </div>

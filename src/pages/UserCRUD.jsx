@@ -36,7 +36,7 @@ function UserCRUD() {
                   <Card.Header>
                     <Card.Title
                       tag="h4"
-                      className="d-flex justify-content-between"
+                      className="d-flex justify-content-between align-items-center"
                     >
                       Usuarios{" "}
                       <a href="/usuarios/nuevo" className="btn btn-primary">
@@ -50,7 +50,7 @@ function UserCRUD() {
                       bordered
                       hover
                       className="tablesorter"
-                      responsive
+                      responsive="md"
                     >
                       <thead className="text-primary">
                         <tr>

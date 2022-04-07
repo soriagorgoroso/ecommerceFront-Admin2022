@@ -29,7 +29,7 @@ function ArticleCRUD() {
                   <Card.Header>
                     <Card.Title
                       tag="h4"
-                      className="d-flex justify-content-between"
+                      className="d-flex justify-content-between align-items-center"
                     >
                       Articulos{" "}
                       <a href="articulos/nuevo" className="btn btn-primary">
@@ -43,7 +43,7 @@ function ArticleCRUD() {
                       bordered
                       hover
                       className="tablesorter"
-                      responsive
+                      responsive="md"
                     >
                       <thead className="text-primary">
                         <tr>

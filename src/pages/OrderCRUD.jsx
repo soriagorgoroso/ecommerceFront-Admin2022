@@ -35,7 +35,7 @@ function OrderCRUD() {
                   <Card.Header>
                     <Card.Title
                       tag="h4"
-                      className="d-flex justify-content-between"
+                      className="d-flex justify-content-between align-items-center"
                     >
                       Ordenes
                     </Card.Title>
@@ -46,7 +46,7 @@ function OrderCRUD() {
                       bordered
                       hover
                       className="tablesorter"
-                      responsive
+                      responsive="md"
                     >
                       <thead className="text-primary">
                         <tr>

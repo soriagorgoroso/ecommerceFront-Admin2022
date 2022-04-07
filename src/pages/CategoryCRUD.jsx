@@ -27,7 +27,7 @@ function CategoryCRUD() {
                 <Card>
                   <Card.Header>
                     <Card.Title
-                      className="d-flex justify-content-between"
+                      className="d-flex justify-content-between align-items-center"
                       tag="h4"
                     >
                       Categorias{" "}
@@ -42,7 +42,7 @@ function CategoryCRUD() {
                       bordered
                       hover
                       className="tablesorter"
-                      responsive
+                      responsive="md"
                     >
                       <thead className="text-primary">
                         <tr>
