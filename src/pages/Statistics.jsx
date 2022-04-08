@@ -13,7 +13,7 @@ function Statistics() {
           <Col className="marginCol">
             <Card>
               <Card.Header>
-                <h1>Estadisticas</h1>
+                <h1>Estadísticas</h1>
               </Card.Header>
               <Card.Body>
                 <Row className="mt-3">
@@ -27,15 +27,15 @@ function Statistics() {
                   </Col>
                   <Col md={3} xs={12}>
                     <div className="card text-white bg-success text-center">
-                      <div className="card-header"># Ventas ultimo mes</div>
+                      <div className="card-header"># Ventas último mes</div>
                       <div className="card-body">
-                        <h5 className="card-title">6677</h5>
+                        <h5 className="card-title">715</h5>
                       </div>
                     </div>
                   </Col>
                   <Col md={3} xs={12}>
                     <div className="card text-white bg-warning text-center">
-                      <div className="card-header">Mas vendido</div>
+                      <div className="card-header">Más vendido</div>
                       <div className="card-body">
                         <h5 className="card-title">FLOR DE LIO</h5>
                       </div>
@@ -43,7 +43,7 @@ function Statistics() {
                   </Col>
                   <Col md={3} xs={12}>
                     <div className="card text-white bg-info text-center">
-                      <div className="card-header">Mas vendido del mes</div>
+                      <div className="card-header">Más vendido del mes</div>
                       <div className="card-body">
                         <h5 className="card-title">BOLONQUI</h5>
                       </div>
