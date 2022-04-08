@@ -122,10 +122,10 @@ function ArticleCreate() {
           </label>
           <input className=" form-control" id="image" type="file" /> */}
                     <label className="mt-3 form-label" htmlFor="image">
-                      Imagen "PLACEHOLDER.JPG"
+                      Imagen "PLACEHOLDER.jpg"
                     </label>
                     <input
-                      placeholder="PLACEHOLDER.JPG"
+                      placeholder="PLACEHOLDER.jpg"
                       onChange={(ev) => {
                         setFormFields({
                           ...formFields,
@@ -133,7 +133,7 @@ function ArticleCreate() {
                         });
                       }}
                       value={formFields.image}
-                      //defaultValue="PLACEHOLDER.JPG"
+                      //defaultValue="PLACEHOLDER.jpg"
                       // readOnly
                       className=" form-control"
                       id="image"
