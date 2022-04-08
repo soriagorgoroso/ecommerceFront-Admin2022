@@ -10,7 +10,7 @@ function ButtonDeleteUser({ id, setUsers }) {
 
   const handleClick = async (ev) => {
     ev.preventDefault();
-    setUsers((prev) => prev.filter((user) => user.id !== id));
+    setUsers((prev) => prev.filter((user) => user._id !== id));
     const response = await axios(
       {
         method: "delete",
