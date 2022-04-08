@@ -3,6 +3,7 @@ import NavBarAdmin from "../components/NavBarAdmin";
 import axios from "axios";
 import { Table, Container, Row, Col, Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import ButtonDeleteUser from "../components/ButtonDeleteUser";
 
 function UserCRUD() {
   const [users, setUsers] = React.useState(null);
@@ -79,13 +80,10 @@ function UserCRUD() {
                               >
                                 <i className="fa-solid fa-pen"></i>
                               </a>
-                              <a
-                                className="btn btn-outline-danger"
-                                rel="stylesheet"
-                                href=""
-                              >
-                                <i className="fa-solid fa-trash-can"></i>{" "}
-                              </a>
+                              <ButtonDeleteUser
+                                id={user._id}
+                                setUsers={setUsers}
+                              />
                             </td>
                           </tr>
                         ))}

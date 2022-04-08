@@ -83,6 +83,7 @@ function EditOrder() {
                       Estado
                     </label>
                     <input
+                      required
                       defaultValue={order.status}
                       className=" form-control"
                       id="status"

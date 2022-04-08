@@ -59,6 +59,7 @@ function CategoryCreate() {
                     Nombre
                   </label>
                   <input
+                    required
                     onChange={(ev) => {
                       setFormFields({ ...formFields, name: ev.target.value });
                     }}

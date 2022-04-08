@@ -73,6 +73,7 @@ function EditCategory() {
                       Nombre
                     </label>
                     <input
+                      required
                       value={category.name}
                       className=" form-control"
                       id="name"
